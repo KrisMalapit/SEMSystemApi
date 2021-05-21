@@ -1,0 +1,1915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BicycleEntryDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BicycleEntryHeaderId" Type="int" Nullable="false" />
+          <Property Name="FrameSafe" Type="int" Nullable="false" />
+          <Property Name="FrameUnSafe" Type="int" Nullable="false" />
+          <Property Name="FrameRemarks" Type="nvarchar(max)" />
+          <Property Name="FrontForkSafe" Type="int" Nullable="false" />
+          <Property Name="FrontForkUnSafe" Type="int" Nullable="false" />
+          <Property Name="FrontForkRemarks" Type="nvarchar(max)" />
+          <Property Name="HandlebarSafe" Type="int" Nullable="false" />
+          <Property Name="HandlebarUnSafe" Type="int" Nullable="false" />
+          <Property Name="HandlebarRemarks" Type="nvarchar(max)" />
+          <Property Name="SeatSafe" Type="int" Nullable="false" />
+          <Property Name="SeatUnSafe" Type="int" Nullable="false" />
+          <Property Name="SeatRemarks" Type="nvarchar(max)" />
+          <Property Name="FrontRearSafe" Type="int" Nullable="false" />
+          <Property Name="FrontRearUnSafe" Type="int" Nullable="false" />
+          <Property Name="FrontRearRemarks" Type="nvarchar(max)" />
+          <Property Name="BrakeSafe" Type="int" Nullable="false" />
+          <Property Name="BrakeUnSafe" Type="int" Nullable="false" />
+          <Property Name="BrakeRemarks" Type="nvarchar(max)" />
+          <Property Name="CrankChainSafe" Type="int" Nullable="false" />
+          <Property Name="CrankChainUnSafe" Type="int" Nullable="false" />
+          <Property Name="CrankChainRemarks" Type="nvarchar(max)" />
+          <Property Name="ChainSafe" Type="int" Nullable="false" />
+          <Property Name="ChainUnSafe" Type="int" Nullable="false" />
+          <Property Name="ChainRemarks" Type="nvarchar(max)" />
+          <Property Name="InspectedBy" Type="nvarchar(max)" />
+          <Property Name="NotedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BicycleEntryHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BicycleId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="Bicycles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOwner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactNo" Type="nvarchar(max)" />
+          <Property Name="BrandName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdentificationNo" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmergencyLightDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationEmergencyLightId" Type="int" Nullable="false" />
+          <Property Name="Battery" Type="int" Nullable="false" />
+          <Property Name="Bulb" Type="int" Nullable="false" />
+          <Property Name="Usable" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="EmergencyLightHeaderId" Type="int" Nullable="false" />
+          <Property Name="InspectedBy" Type="nvarchar(max)" />
+          <Property Name="NotedBy" Type="nvarchar(max)" />
+          <Property Name="ReviewedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EmergencyLightHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="FireExtinguisherDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationFireExtinguisherId" Type="int" Nullable="false" />
+          <Property Name="Cylinder" Type="int" Nullable="false" />
+          <Property Name="Lever" Type="int" Nullable="false" />
+          <Property Name="Gauge" Type="int" Nullable="false" />
+          <Property Name="SafetySeal" Type="int" Nullable="false" />
+          <Property Name="Hose" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="FireExtinguisherHeaderId" Type="int" Nullable="false" />
+          <Property Name="InspectedBy" Type="nvarchar(max)" />
+          <Property Name="NotedBy" Type="nvarchar(max)" />
+          <Property Name="ReviewedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FireExtinguisherHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="FireHydrantDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationFireHydrantId" Type="int" Nullable="false" />
+          <Property Name="GlassCabinet" Type="int" Nullable="false" />
+          <Property Name="Hanger" Type="int" Nullable="false" />
+          <Property Name="Hose15" Type="int" Nullable="false" />
+          <Property Name="Nozzle15" Type="int" Nullable="false" />
+          <Property Name="Hose25" Type="int" Nullable="false" />
+          <Property Name="Nozzle25" Type="int" Nullable="false" />
+          <Property Name="SpecialTools" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="FireHydrantHeaderId" Type="int" Nullable="false" />
+          <Property Name="InspectedBy" Type="nvarchar(max)" />
+          <Property Name="NotedBy" Type="nvarchar(max)" />
+          <Property Name="ReviewedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FireHydrantHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InergenTankDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationInergenTankId" Type="int" Nullable="false" />
+          <Property Name="Cylinder" Type="int" Nullable="false" />
+          <Property Name="Gauge" Type="int" Nullable="false" />
+          <Property Name="Hose" Type="int" Nullable="false" />
+          <Property Name="Pressure" Type="int" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="InergenTankHeaderId" Type="int" Nullable="false" />
+          <Property Name="InspectedBy" Type="nvarchar(max)" />
+          <Property Name="NotedBy" Type="nvarchar(max)" />
+          <Property Name="ReviewedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InergenTankHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ItemLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="OldStatus" Type="nvarchar(max)" />
+          <Property Name="NewStatus" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SerialNo" Type="nvarchar(max)" />
+          <Property Name="DatePurchased" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Warranty" Type="int" Nullable="false" />
+          <Property Name="ItemStatus" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="EquipmentType" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LocationEmergencyLights">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar" MaxLength="450" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="LocationFireExtinguishers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar" MaxLength="450" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Capacity" Type="nvarchar(max)" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="LocationFireHydrants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar" MaxLength="450" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="LocationInergenTanks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Capacity" Type="nvarchar(max)" />
+          <Property Name="Serial" Type="nvarchar(max)" />
+          <Property Name="Area" Type="nvarchar(max)" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LocationItemDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Equipment" Type="nvarchar(max)" />
+          <Property Name="HeaderId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descriptions" Type="nvarchar(max)" />
+          <Property Name="Action" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoSeries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="LastNoUsed" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="Domain" Type="nvarchar(max)" />
+          <Property Name="CompanyAccess" Type="nvarchar(max)" />
+          <Property Name="UserType" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Areas_Companies_CompanyId">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Areas" Type="Self.Areas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Areas">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId">
+          <End Role="BicycleEntryHeaders" Type="Self.BicycleEntryHeaders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BicycleEntryDetails" Type="Self.BicycleEntryDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BicycleEntryHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BicycleEntryDetails">
+              <PropertyRef Name="BicycleEntryHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BicycleEntryHeaders_Bicycles_BicycleId">
+          <End Role="Bicycles" Type="Self.Bicycles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BicycleEntryHeaders" Type="Self.BicycleEntryHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bicycles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BicycleEntryHeaders">
+              <PropertyRef Name="BicycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departments_Companies_CompanyId">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departments">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId">
+          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeaders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EmergencyLightDetails" Type="Self.EmergencyLightDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyLightHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyLightDetails">
+              <PropertyRef Name="EmergencyLightHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyLightHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmergencyLightHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
+          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeaders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireExtinguisherDetails" Type="Self.FireExtinguisherDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FireExtinguisherHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FireExtinguisherDetails">
+              <PropertyRef Name="FireExtinguisherHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireExtinguisherHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FireExtinguisherHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
+          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeaders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireHydrantDetails" Type="Self.FireHydrantDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FireHydrantHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FireHydrantDetails">
+              <PropertyRef Name="FireHydrantHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireHydrantHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FireHydrantHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
+          <End Role="InergenTankHeaders" Type="Self.InergenTankHeaders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InergenTankDetails" Type="Self.InergenTankDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InergenTankHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InergenTankDetails">
+              <PropertyRef Name="InergenTankHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InergenTankHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InergenTankHeaders" Type="Self.InergenTankHeaders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InergenTankHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemLogs_Items_ItemId">
+          <End Role="Items" Type="Self.Items" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemLogs" Type="Self.ItemLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemLogs">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationEmergencyLights_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationEmergencyLights" Type="Self.LocationEmergencyLights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationEmergencyLights">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationFireExtinguishers_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationFireExtinguishers" Type="Self.LocationFireExtinguishers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationFireExtinguishers">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationFireHydrants_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationFireHydrants" Type="Self.LocationFireHydrants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationFireHydrants">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationInergenTanks_Areas_AreaId">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationInergenTanks" Type="Self.LocationInergenTanks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationInergenTanks">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationItemDetails_Items_ItemId">
+          <End Role="Items" Type="Self.Items" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationItemDetails" Type="Self.LocationItemDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationItemDetails">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Departments_DepartmentId">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles_RoleId">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEMModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BicycleEntryDetails" EntityType="Self.BicycleEntryDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BicycleEntryHeaders" EntityType="Self.BicycleEntryHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bicycles" EntityType="Self.Bicycles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmergencyLightDetails" EntityType="Self.EmergencyLightDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmergencyLightHeaders" EntityType="Self.EmergencyLightHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FireExtinguisherDetails" EntityType="Self.FireExtinguisherDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FireExtinguisherHeaders" EntityType="Self.FireExtinguisherHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FireHydrantDetails" EntityType="Self.FireHydrantDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FireHydrantHeaders" EntityType="Self.FireHydrantHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InergenTankDetails" EntityType="Self.InergenTankDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InergenTankHeaders" EntityType="Self.InergenTankHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemLogs" EntityType="Self.ItemLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationEmergencyLights" EntityType="Self.LocationEmergencyLights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationFireExtinguishers" EntityType="Self.LocationFireExtinguishers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationFireHydrants" EntityType="Self.LocationFireHydrants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationInergenTanks" EntityType="Self.LocationInergenTanks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationItemDetails" EntityType="Self.LocationItemDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoSeries" EntityType="Self.NoSeries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Areas_Companies_CompanyId" Association="Self.FK_Areas_Companies_CompanyId">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Areas" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" Association="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId">
+            <End Role="BicycleEntryHeaders" EntitySet="BicycleEntryHeaders" />
+            <End Role="BicycleEntryDetails" EntitySet="BicycleEntryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BicycleEntryHeaders_Bicycles_BicycleId" Association="Self.FK_BicycleEntryHeaders_Bicycles_BicycleId">
+            <End Role="Bicycles" EntitySet="Bicycles" />
+            <End Role="BicycleEntryHeaders" EntitySet="BicycleEntryHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departments_Companies_CompanyId" Association="Self.FK_Departments_Companies_CompanyId">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Departments" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" Association="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId">
+            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+            <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyLightHeaders_Areas_AreaId" Association="Self.FK_EmergencyLightHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" Association="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
+            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+            <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireExtinguisherHeaders_Areas_AreaId" Association="Self.FK_FireExtinguisherHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" Association="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
+            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+            <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireHydrantHeaders_Areas_AreaId" Association="Self.FK_FireHydrantHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" Association="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
+            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+            <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InergenTankHeaders_Areas_AreaId" Association="Self.FK_InergenTankHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemLogs_Items_ItemId" Association="Self.FK_ItemLogs_Items_ItemId">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemLogs" EntitySet="ItemLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationEmergencyLights_Areas_AreaId" Association="Self.FK_LocationEmergencyLights_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationEmergencyLights" EntitySet="LocationEmergencyLights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationFireExtinguishers_Areas_AreaId" Association="Self.FK_LocationFireExtinguishers_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationFireExtinguishers" EntitySet="LocationFireExtinguishers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationFireHydrants_Areas_AreaId" Association="Self.FK_LocationFireHydrants_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationFireHydrants" EntitySet="LocationFireHydrants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationInergenTanks_Areas_AreaId" Association="Self.FK_LocationInergenTanks_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationItemDetails_Items_ItemId" Association="Self.FK_LocationItemDetails_Items_ItemId">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="LocationItemDetails" EntitySet="LocationItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Departments_DepartmentId" Association="Self.FK_Users_Departments_DepartmentId">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles_RoleId" Association="Self.FK_Users_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Areas_Companies_CompanyId" FromRole="Areas" ToRole="Companies" />
+          <NavigationProperty Name="EmergencyLightHeaders" Relationship="Self.FK_EmergencyLightHeaders_Areas_AreaId" FromRole="Areas" ToRole="EmergencyLightHeaders" />
+          <NavigationProperty Name="FireExtinguisherHeaders" Relationship="Self.FK_FireExtinguisherHeaders_Areas_AreaId" FromRole="Areas" ToRole="FireExtinguisherHeaders" />
+          <NavigationProperty Name="FireHydrantHeaders" Relationship="Self.FK_FireHydrantHeaders_Areas_AreaId" FromRole="Areas" ToRole="FireHydrantHeaders" />
+          <NavigationProperty Name="InergenTankHeaders" Relationship="Self.FK_InergenTankHeaders_Areas_AreaId" FromRole="Areas" ToRole="InergenTankHeaders" />
+          <NavigationProperty Name="LocationEmergencyLights" Relationship="Self.FK_LocationEmergencyLights_Areas_AreaId" FromRole="Areas" ToRole="LocationEmergencyLights" />
+          <NavigationProperty Name="LocationFireExtinguishers" Relationship="Self.FK_LocationFireExtinguishers_Areas_AreaId" FromRole="Areas" ToRole="LocationFireExtinguishers" />
+          <NavigationProperty Name="LocationFireHydrants" Relationship="Self.FK_LocationFireHydrants_Areas_AreaId" FromRole="Areas" ToRole="LocationFireHydrants" />
+          <NavigationProperty Name="LocationInergenTanks" Relationship="Self.FK_LocationInergenTanks_Areas_AreaId" FromRole="Areas" ToRole="LocationInergenTanks" />
+        </EntityType>
+        <EntityType Name="BicycleEntryDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BicycleEntryHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="FrameSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrameUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrameRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FrontForkSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrontForkUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrontForkRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HandlebarSafe" Type="Int32" Nullable="false" />
+          <Property Name="HandlebarUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="HandlebarRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeatSafe" Type="Int32" Nullable="false" />
+          <Property Name="SeatUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="SeatRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FrontRearSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrontRearUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="FrontRearRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrakeSafe" Type="Int32" Nullable="false" />
+          <Property Name="BrakeUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="BrakeRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CrankChainSafe" Type="Int32" Nullable="false" />
+          <Property Name="CrankChainUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="CrankChainRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChainSafe" Type="Int32" Nullable="false" />
+          <Property Name="ChainUnSafe" Type="Int32" Nullable="false" />
+          <Property Name="ChainRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="BicycleEntryHeader" Relationship="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" FromRole="BicycleEntryDetails" ToRole="BicycleEntryHeaders" />
+        </EntityType>
+        <EntityType Name="BicycleEntryHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BicycleId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BicycleEntryDetails" Relationship="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" FromRole="BicycleEntryHeaders" ToRole="BicycleEntryDetails" />
+          <NavigationProperty Name="Bicycle" Relationship="Self.FK_BicycleEntryHeaders_Bicycles_BicycleId" FromRole="BicycleEntryHeaders" ToRole="Bicycles" />
+        </EntityType>
+        <EntityType Name="Bicycle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdentificationNo" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BicycleEntryHeaders" Relationship="Self.FK_BicycleEntryHeaders_Bicycles_BicycleId" FromRole="Bicycles" ToRole="BicycleEntryHeaders" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Areas" Relationship="Self.FK_Areas_Companies_CompanyId" FromRole="Companies" ToRole="Areas" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK_Departments_Companies_CompanyId" FromRole="Companies" ToRole="Departments" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Departments_Companies_CompanyId" FromRole="Departments" ToRole="Companies" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Departments_DepartmentId" FromRole="Departments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="EmergencyLightDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationEmergencyLightId" Type="Int32" Nullable="false" />
+          <Property Name="Battery" Type="Int32" Nullable="false" />
+          <Property Name="Bulb" Type="Int32" Nullable="false" />
+          <Property Name="Usable" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmergencyLightHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmergencyLightHeader" Relationship="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" FromRole="EmergencyLightDetails" ToRole="EmergencyLightHeaders" />
+        </EntityType>
+        <EntityType Name="EmergencyLightHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_EmergencyLightHeaders_Areas_AreaId" FromRole="EmergencyLightHeaders" ToRole="Areas" />
+          <NavigationProperty Name="EmergencyLightDetails" Relationship="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" FromRole="EmergencyLightHeaders" ToRole="EmergencyLightDetails" />
+        </EntityType>
+        <EntityType Name="FireExtinguisherDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationFireExtinguisherId" Type="Int32" Nullable="false" />
+          <Property Name="Cylinder" Type="Int32" Nullable="false" />
+          <Property Name="Lever" Type="Int32" Nullable="false" />
+          <Property Name="Gauge" Type="Int32" Nullable="false" />
+          <Property Name="SafetySeal" Type="Int32" Nullable="false" />
+          <Property Name="Hose" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FireExtinguisherHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FireExtinguisherHeader" Relationship="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" FromRole="FireExtinguisherDetails" ToRole="FireExtinguisherHeaders" />
+        </EntityType>
+        <EntityType Name="FireExtinguisherHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_FireExtinguisherHeaders_Areas_AreaId" FromRole="FireExtinguisherHeaders" ToRole="Areas" />
+          <NavigationProperty Name="FireExtinguisherDetails" Relationship="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" FromRole="FireExtinguisherHeaders" ToRole="FireExtinguisherDetails" />
+        </EntityType>
+        <EntityType Name="FireHydrantDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationFireHydrantId" Type="Int32" Nullable="false" />
+          <Property Name="GlassCabinet" Type="Int32" Nullable="false" />
+          <Property Name="Hanger" Type="Int32" Nullable="false" />
+          <Property Name="Hose15" Type="Int32" Nullable="false" />
+          <Property Name="Nozzle15" Type="Int32" Nullable="false" />
+          <Property Name="Hose25" Type="Int32" Nullable="false" />
+          <Property Name="Nozzle25" Type="Int32" Nullable="false" />
+          <Property Name="SpecialTools" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FireHydrantHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FireHydrantHeader" Relationship="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" FromRole="FireHydrantDetails" ToRole="FireHydrantHeaders" />
+        </EntityType>
+        <EntityType Name="FireHydrantHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_FireHydrantHeaders_Areas_AreaId" FromRole="FireHydrantHeaders" ToRole="Areas" />
+          <NavigationProperty Name="FireHydrantDetails" Relationship="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" FromRole="FireHydrantHeaders" ToRole="FireHydrantDetails" />
+        </EntityType>
+        <EntityType Name="InergenTankDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationInergenTankId" Type="Int32" Nullable="false" />
+          <Property Name="Cylinder" Type="Int32" Nullable="false" />
+          <Property Name="Gauge" Type="Int32" Nullable="false" />
+          <Property Name="Hose" Type="Int32" Nullable="false" />
+          <Property Name="Pressure" Type="Int32" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InergenTankHeaderId" Type="Int32" Nullable="false" />
+          <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InergenTankHeader" Relationship="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" FromRole="InergenTankDetails" ToRole="InergenTankHeaders" />
+        </EntityType>
+        <EntityType Name="InergenTankHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_InergenTankHeaders_Areas_AreaId" FromRole="InergenTankHeaders" ToRole="Areas" />
+          <NavigationProperty Name="InergenTankDetails" Relationship="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" FromRole="InergenTankHeaders" ToRole="InergenTankDetails" />
+        </EntityType>
+        <EntityType Name="ItemLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="OldStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemLogs_Items_ItemId" FromRole="ItemLogs" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SerialNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DatePurchased" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Warranty" Type="Int32" Nullable="false" />
+          <Property Name="ItemStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemLogs" Relationship="Self.FK_ItemLogs_Items_ItemId" FromRole="Items" ToRole="ItemLogs" />
+          <NavigationProperty Name="LocationItemDetails" Relationship="Self.FK_LocationItemDetails_Items_ItemId" FromRole="Items" ToRole="LocationItemDetails" />
+        </EntityType>
+        <EntityType Name="LocationEmergencyLight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_LocationEmergencyLights_Areas_AreaId" FromRole="LocationEmergencyLights" ToRole="Areas" />
+        </EntityType>
+        <EntityType Name="LocationFireExtinguisher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_LocationFireExtinguishers_Areas_AreaId" FromRole="LocationFireExtinguishers" ToRole="Areas" />
+        </EntityType>
+        <EntityType Name="LocationFireHydrant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_LocationFireHydrants_Areas_AreaId" FromRole="LocationFireHydrants" ToRole="Areas" />
+        </EntityType>
+        <EntityType Name="LocationInergenTank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Serial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Area1" Relationship="Self.FK_LocationInergenTanks_Areas_AreaId" FromRole="LocationInergenTanks" ToRole="Areas" />
+        </EntityType>
+        <EntityType Name="LocationItemDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Equipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HeaderId" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_LocationItemDetails_Items_ItemId" FromRole="LocationItemDetails" ToRole="Items" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="NoSery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastNoUsed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="DateUpdated" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles_RoleId" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="Domain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAccess" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Users_Departments_DepartmentId" FromRole="Users" ToRole="Departments" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles_RoleId" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Areas_Companies_CompanyId">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Areas" Type="Self.Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Areas">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyLightHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmergencyLightHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireExtinguisherHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FireExtinguisherHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireHydrantHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FireHydrantHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InergenTankHeaders_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InergenTankHeaders" Type="Self.InergenTankHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InergenTankHeaders">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationEmergencyLights_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationEmergencyLights" Type="Self.LocationEmergencyLight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationEmergencyLights">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationFireExtinguishers_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationFireExtinguishers" Type="Self.LocationFireExtinguisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationFireExtinguishers">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationFireHydrants_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationFireHydrants" Type="Self.LocationFireHydrant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationFireHydrants">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationInergenTanks_Areas_AreaId">
+          <End Role="Areas" Type="Self.Area" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationInergenTanks" Type="Self.LocationInergenTank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LocationInergenTanks">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId">
+          <End Role="BicycleEntryHeaders" Type="Self.BicycleEntryHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BicycleEntryDetails" Type="Self.BicycleEntryDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BicycleEntryHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BicycleEntryDetails">
+              <PropertyRef Name="BicycleEntryHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BicycleEntryHeaders_Bicycles_BicycleId">
+          <End Role="Bicycles" Type="Self.Bicycle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BicycleEntryHeaders" Type="Self.BicycleEntryHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bicycles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BicycleEntryHeaders">
+              <PropertyRef Name="BicycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departments_Companies_CompanyId">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Departments" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departments">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Departments_DepartmentId">
+          <End Role="Departments" Type="Self.Department" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId">
+          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EmergencyLightDetails" Type="Self.EmergencyLightDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmergencyLightHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmergencyLightDetails">
+              <PropertyRef Name="EmergencyLightHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
+          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireExtinguisherDetails" Type="Self.FireExtinguisherDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FireExtinguisherHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FireExtinguisherDetails">
+              <PropertyRef Name="FireExtinguisherHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
+          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FireHydrantDetails" Type="Self.FireHydrantDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FireHydrantHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FireHydrantDetails">
+              <PropertyRef Name="FireHydrantHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
+          <End Role="InergenTankHeaders" Type="Self.InergenTankHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InergenTankDetails" Type="Self.InergenTankDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InergenTankHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InergenTankDetails">
+              <PropertyRef Name="InergenTankHeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemLogs_Items_ItemId">
+          <End Role="Items" Type="Self.Item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemLogs" Type="Self.ItemLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemLogs">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationItemDetails_Items_ItemId">
+          <End Role="Items" Type="Self.Item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LocationItemDetails" Type="Self.LocationItemDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LocationItemDetails">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles_RoleId">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="BicycleEntryDetails" EntityType="Self.BicycleEntryDetail" />
+          <EntitySet Name="BicycleEntryHeaders" EntityType="Self.BicycleEntryHeader" />
+          <EntitySet Name="Bicycles" EntityType="Self.Bicycle" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="EmergencyLightDetails" EntityType="Self.EmergencyLightDetail" />
+          <EntitySet Name="EmergencyLightHeaders" EntityType="Self.EmergencyLightHeader" />
+          <EntitySet Name="FireExtinguisherDetails" EntityType="Self.FireExtinguisherDetail" />
+          <EntitySet Name="FireExtinguisherHeaders" EntityType="Self.FireExtinguisherHeader" />
+          <EntitySet Name="FireHydrantDetails" EntityType="Self.FireHydrantDetail" />
+          <EntitySet Name="FireHydrantHeaders" EntityType="Self.FireHydrantHeader" />
+          <EntitySet Name="InergenTankDetails" EntityType="Self.InergenTankDetail" />
+          <EntitySet Name="InergenTankHeaders" EntityType="Self.InergenTankHeader" />
+          <EntitySet Name="ItemLogs" EntityType="Self.ItemLog" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="LocationEmergencyLights" EntityType="Self.LocationEmergencyLight" />
+          <EntitySet Name="LocationFireExtinguishers" EntityType="Self.LocationFireExtinguisher" />
+          <EntitySet Name="LocationFireHydrants" EntityType="Self.LocationFireHydrant" />
+          <EntitySet Name="LocationInergenTanks" EntityType="Self.LocationInergenTank" />
+          <EntitySet Name="LocationItemDetails" EntityType="Self.LocationItemDetail" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="NoSeries" EntityType="Self.NoSery" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Areas_Companies_CompanyId" Association="Self.FK_Areas_Companies_CompanyId">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Areas" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyLightHeaders_Areas_AreaId" Association="Self.FK_EmergencyLightHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireExtinguisherHeaders_Areas_AreaId" Association="Self.FK_FireExtinguisherHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireHydrantHeaders_Areas_AreaId" Association="Self.FK_FireHydrantHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InergenTankHeaders_Areas_AreaId" Association="Self.FK_InergenTankHeaders_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationEmergencyLights_Areas_AreaId" Association="Self.FK_LocationEmergencyLights_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationEmergencyLights" EntitySet="LocationEmergencyLights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationFireExtinguishers_Areas_AreaId" Association="Self.FK_LocationFireExtinguishers_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationFireExtinguishers" EntitySet="LocationFireExtinguishers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationFireHydrants_Areas_AreaId" Association="Self.FK_LocationFireHydrants_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationFireHydrants" EntitySet="LocationFireHydrants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationInergenTanks_Areas_AreaId" Association="Self.FK_LocationInergenTanks_Areas_AreaId">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" Association="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId">
+            <End Role="BicycleEntryHeaders" EntitySet="BicycleEntryHeaders" />
+            <End Role="BicycleEntryDetails" EntitySet="BicycleEntryDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BicycleEntryHeaders_Bicycles_BicycleId" Association="Self.FK_BicycleEntryHeaders_Bicycles_BicycleId">
+            <End Role="Bicycles" EntitySet="Bicycles" />
+            <End Role="BicycleEntryHeaders" EntitySet="BicycleEntryHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departments_Companies_CompanyId" Association="Self.FK_Departments_Companies_CompanyId">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Departments" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Departments_DepartmentId" Association="Self.FK_Users_Departments_DepartmentId">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" Association="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId">
+            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+            <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" Association="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
+            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+            <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" Association="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
+            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+            <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" Association="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
+            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+            <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemLogs_Items_ItemId" Association="Self.FK_ItemLogs_Items_ItemId">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemLogs" EntitySet="ItemLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationItemDetails_Items_ItemId" Association="Self.FK_LocationItemDetails_Items_ItemId">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="LocationItemDetails" EntitySet="LocationItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles_RoleId" Association="Self.FK_Users_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SEMModelStoreContainer" CdmEntityContainer="SEMEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="SEMModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="SEMModel.Area">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BicycleEntryDetails">
+            <EntityTypeMapping TypeName="SEMModel.BicycleEntryDetail">
+              <MappingFragment StoreEntitySet="BicycleEntryDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BicycleEntryHeaderId" ColumnName="BicycleEntryHeaderId" />
+                <ScalarProperty Name="FrameSafe" ColumnName="FrameSafe" />
+                <ScalarProperty Name="FrameUnSafe" ColumnName="FrameUnSafe" />
+                <ScalarProperty Name="FrameRemarks" ColumnName="FrameRemarks" />
+                <ScalarProperty Name="FrontForkSafe" ColumnName="FrontForkSafe" />
+                <ScalarProperty Name="FrontForkUnSafe" ColumnName="FrontForkUnSafe" />
+                <ScalarProperty Name="FrontForkRemarks" ColumnName="FrontForkRemarks" />
+                <ScalarProperty Name="HandlebarSafe" ColumnName="HandlebarSafe" />
+                <ScalarProperty Name="HandlebarUnSafe" ColumnName="HandlebarUnSafe" />
+                <ScalarProperty Name="HandlebarRemarks" ColumnName="HandlebarRemarks" />
+                <ScalarProperty Name="SeatSafe" ColumnName="SeatSafe" />
+                <ScalarProperty Name="SeatUnSafe" ColumnName="SeatUnSafe" />
+                <ScalarProperty Name="SeatRemarks" ColumnName="SeatRemarks" />
+                <ScalarProperty Name="FrontRearSafe" ColumnName="FrontRearSafe" />
+                <ScalarProperty Name="FrontRearUnSafe" ColumnName="FrontRearUnSafe" />
+                <ScalarProperty Name="FrontRearRemarks" ColumnName="FrontRearRemarks" />
+                <ScalarProperty Name="BrakeSafe" ColumnName="BrakeSafe" />
+                <ScalarProperty Name="BrakeUnSafe" ColumnName="BrakeUnSafe" />
+                <ScalarProperty Name="BrakeRemarks" ColumnName="BrakeRemarks" />
+                <ScalarProperty Name="CrankChainSafe" ColumnName="CrankChainSafe" />
+                <ScalarProperty Name="CrankChainUnSafe" ColumnName="CrankChainUnSafe" />
+                <ScalarProperty Name="CrankChainRemarks" ColumnName="CrankChainRemarks" />
+                <ScalarProperty Name="ChainSafe" ColumnName="ChainSafe" />
+                <ScalarProperty Name="ChainUnSafe" ColumnName="ChainUnSafe" />
+                <ScalarProperty Name="ChainRemarks" ColumnName="ChainRemarks" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BicycleEntryHeaders">
+            <EntityTypeMapping TypeName="SEMModel.BicycleEntryHeader">
+              <MappingFragment StoreEntitySet="BicycleEntryHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BicycleId" ColumnName="BicycleId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bicycles">
+            <EntityTypeMapping TypeName="SEMModel.Bicycle">
+              <MappingFragment StoreEntitySet="Bicycles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NameOwner" ColumnName="NameOwner" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="IdentificationNo" ColumnName="IdentificationNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="SEMModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="SEMModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmergencyLightDetails">
+            <EntityTypeMapping TypeName="SEMModel.EmergencyLightDetail">
+              <MappingFragment StoreEntitySet="EmergencyLightDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationEmergencyLightId" ColumnName="LocationEmergencyLightId" />
+                <ScalarProperty Name="Battery" ColumnName="Battery" />
+                <ScalarProperty Name="Bulb" ColumnName="Bulb" />
+                <ScalarProperty Name="Usable" ColumnName="Usable" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="EmergencyLightHeaderId" ColumnName="EmergencyLightHeaderId" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
+                <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmergencyLightHeaders">
+            <EntityTypeMapping TypeName="SEMModel.EmergencyLightHeader">
+              <MappingFragment StoreEntitySet="EmergencyLightHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FireExtinguisherDetails">
+            <EntityTypeMapping TypeName="SEMModel.FireExtinguisherDetail">
+              <MappingFragment StoreEntitySet="FireExtinguisherDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationFireExtinguisherId" ColumnName="LocationFireExtinguisherId" />
+                <ScalarProperty Name="Cylinder" ColumnName="Cylinder" />
+                <ScalarProperty Name="Lever" ColumnName="Lever" />
+                <ScalarProperty Name="Gauge" ColumnName="Gauge" />
+                <ScalarProperty Name="SafetySeal" ColumnName="SafetySeal" />
+                <ScalarProperty Name="Hose" ColumnName="Hose" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="FireExtinguisherHeaderId" ColumnName="FireExtinguisherHeaderId" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
+                <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FireExtinguisherHeaders">
+            <EntityTypeMapping TypeName="SEMModel.FireExtinguisherHeader">
+              <MappingFragment StoreEntitySet="FireExtinguisherHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FireHydrantDetails">
+            <EntityTypeMapping TypeName="SEMModel.FireHydrantDetail">
+              <MappingFragment StoreEntitySet="FireHydrantDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationFireHydrantId" ColumnName="LocationFireHydrantId" />
+                <ScalarProperty Name="GlassCabinet" ColumnName="GlassCabinet" />
+                <ScalarProperty Name="Hanger" ColumnName="Hanger" />
+                <ScalarProperty Name="Hose15" ColumnName="Hose15" />
+                <ScalarProperty Name="Nozzle15" ColumnName="Nozzle15" />
+                <ScalarProperty Name="Hose25" ColumnName="Hose25" />
+                <ScalarProperty Name="Nozzle25" ColumnName="Nozzle25" />
+                <ScalarProperty Name="SpecialTools" ColumnName="SpecialTools" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="FireHydrantHeaderId" ColumnName="FireHydrantHeaderId" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
+                <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FireHydrantHeaders">
+            <EntityTypeMapping TypeName="SEMModel.FireHydrantHeader">
+              <MappingFragment StoreEntitySet="FireHydrantHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InergenTankDetails">
+            <EntityTypeMapping TypeName="SEMModel.InergenTankDetail">
+              <MappingFragment StoreEntitySet="InergenTankDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocationInergenTankId" ColumnName="LocationInergenTankId" />
+                <ScalarProperty Name="Cylinder" ColumnName="Cylinder" />
+                <ScalarProperty Name="Gauge" ColumnName="Gauge" />
+                <ScalarProperty Name="Hose" ColumnName="Hose" />
+                <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="InergenTankHeaderId" ColumnName="InergenTankHeaderId" />
+                <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+                <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
+                <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InergenTankHeaders">
+            <EntityTypeMapping TypeName="SEMModel.InergenTankHeader">
+              <MappingFragment StoreEntitySet="InergenTankHeaders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemLogs">
+            <EntityTypeMapping TypeName="SEMModel.ItemLog">
+              <MappingFragment StoreEntitySet="ItemLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="OldStatus" ColumnName="OldStatus" />
+                <ScalarProperty Name="NewStatus" ColumnName="NewStatus" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="SEMModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+                <ScalarProperty Name="DatePurchased" ColumnName="DatePurchased" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="EquipmentType" ColumnName="EquipmentType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationEmergencyLights">
+            <EntityTypeMapping TypeName="SEMModel.LocationEmergencyLight">
+              <MappingFragment StoreEntitySet="LocationEmergencyLights">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationFireExtinguishers">
+            <EntityTypeMapping TypeName="SEMModel.LocationFireExtinguisher">
+              <MappingFragment StoreEntitySet="LocationFireExtinguishers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationFireHydrants">
+            <EntityTypeMapping TypeName="SEMModel.LocationFireHydrant">
+              <MappingFragment StoreEntitySet="LocationFireHydrants">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationInergenTanks">
+            <EntityTypeMapping TypeName="SEMModel.LocationInergenTank">
+              <MappingFragment StoreEntitySet="LocationInergenTanks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationItemDetails">
+            <EntityTypeMapping TypeName="SEMModel.LocationItemDetail">
+              <MappingFragment StoreEntitySet="LocationItemDetails">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+                <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="SEMModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoSeries">
+            <EntityTypeMapping TypeName="SEMModel.NoSery">
+              <MappingFragment StoreEntitySet="NoSeries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="LastNoUsed" ColumnName="LastNoUsed" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SEMModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="SEMModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="CompanyAccess" ColumnName="CompanyAccess" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

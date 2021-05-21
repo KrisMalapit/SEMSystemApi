@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25c21a0e4064495f92ebd821c0fff0ac" Name="Diagram1">
+        <EntityTypeShape EntityType="SEMModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Area" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.BicycleEntryDetail" Width="1.5" PointX="14.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.BicycleEntryHeader" Width="1.5" PointX="12" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Bicycle" Width="1.5" PointX="9.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Company" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Department" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.EmergencyLightDetail" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.EmergencyLightHeader" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireExtinguisherDetail" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireExtinguisherHeader" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireHydrantDetail" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireHydrantHeader" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.InergenTankDetail" Width="1.5" PointX="7.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.InergenTankHeader" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.ItemLog" Width="1.5" PointX="12" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Item" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationEmergencyLight" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationFireExtinguisher" Width="1.5" PointX="5.25" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationFireHydrant" Width="1.5" PointX="5.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationInergenTank" Width="1.5" PointX="5.25" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationItemDetail" Width="1.5" PointX="12" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Log" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.NoSery" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Role" Width="1.5" PointX="3" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.User" Width="1.5" PointX="5.25" PointY="35" IsExpanded="true" />
+        <AssociationConnector Association="SEMModel.FK_Areas_Companies_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_EmergencyLightHeaders_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireExtinguisherHeaders_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireHydrantHeaders_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_InergenTankHeaders_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_LocationEmergencyLights_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_LocationFireExtinguishers_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_LocationFireHydrants_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_LocationInergenTanks_Areas_AreaId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_BicycleEntryHeaders_Bicycles_BicycleId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_Departments_Companies_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_Users_Departments_DepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_ItemLogs_Items_ItemId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_LocationItemDetails_Items_ItemId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_Users_Roles_RoleId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
