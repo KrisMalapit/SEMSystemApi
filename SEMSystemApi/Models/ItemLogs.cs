@@ -12,15 +12,17 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LocationInergenTank
+    public partial class ItemLogs
     {
         public int Id { get; set; }
-        public string Capacity { get; set; }
-        public string Serial { get; set; }
-        public string Area { get; set; }
-        public int AreaId { get; set; }
-        public string Status { get; set; }
+        public int ItemId { get; set; }
+        public string OldStatus { get; set; }
+        public string NewStatus { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string Description { get; set; }
+        public string Module { get; set; }
     
-        public virtual Area Area1 { get; set; }
+        public virtual Items Items { get; set; }
     }
 }

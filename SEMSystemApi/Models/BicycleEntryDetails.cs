@@ -12,7 +12,7 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class BicycleEntryDetail
+    public partial class BicycleEntryDetails
     {
         public int Id { get; set; }
         public int BicycleEntryHeaderId { get; set; }
@@ -45,6 +45,6 @@ namespace SEMSystemApi.Models
         public string UpdatedBy { get; set; }
         public System.DateTime UpdatedAt { get; set; }
     
-        public virtual BicycleEntryHeader BicycleEntryHeader { get; set; }
+        public virtual BicycleEntryHeaders BicycleEntryHeaders { get; set; }
     }
 }

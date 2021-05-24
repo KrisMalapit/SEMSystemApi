@@ -12,16 +12,22 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LocationFireExtinguisher
+    public partial class LocationEmergencyLights
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LocationEmergencyLights()
+        {
+            this.EmergencyLightHeaders = new HashSet<EmergencyLightHeaders>();
+        }
+    
         public int Id { get; set; }
         public string Location { get; set; }
         public string Code { get; set; }
-        public string Type { get; set; }
-        public string Capacity { get; set; }
         public int AreaId { get; set; }
         public string Status { get; set; }
     
-        public virtual Area Area { get; set; }
+        public virtual Areas Areas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmergencyLightHeaders> EmergencyLightHeaders { get; set; }
     }
 }

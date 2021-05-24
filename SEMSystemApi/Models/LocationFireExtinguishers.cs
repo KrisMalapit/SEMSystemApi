@@ -12,23 +12,24 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class InergenTankHeader
+    public partial class LocationFireExtinguishers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InergenTankHeader()
+        public LocationFireExtinguishers()
         {
-            this.InergenTankDetails = new HashSet<InergenTankDetail>();
+            this.FireExtinguisherHeaders = new HashSet<FireExtinguisherHeaders>();
         }
     
         public int Id { get; set; }
+        public string Location { get; set; }
+        public string Code { get; set; }
+        public string Type { get; set; }
+        public string Capacity { get; set; }
         public int AreaId { get; set; }
-        public System.DateTime CreatedAt { get; set; }
-        public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
         public string Status { get; set; }
     
-        public virtual Area Area { get; set; }
+        public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InergenTankDetail> InergenTankDetails { get; set; }
+        public virtual ICollection<FireExtinguisherHeaders> FireExtinguisherHeaders { get; set; }
     }
 }

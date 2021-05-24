@@ -12,7 +12,7 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -28,7 +28,7 @@ namespace SEMSystemApi.Models
         public string CompanyAccess { get; set; }
         public string UserType { get; set; }
     
-        public virtual Department Department { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual Departments Departments { get; set; }
+        public virtual Roles Roles { get; set; }
     }
 }

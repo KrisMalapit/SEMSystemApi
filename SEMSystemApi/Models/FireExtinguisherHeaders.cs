@@ -12,23 +12,23 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FireHydrantHeader
+    public partial class FireExtinguisherHeaders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FireHydrantHeader()
+        public FireExtinguisherHeaders()
         {
-            this.FireHydrantDetails = new HashSet<FireHydrantDetail>();
+            this.FireExtinguisherDetails = new HashSet<FireExtinguisherDetails>();
         }
     
         public int Id { get; set; }
-        public int AreaId { get; set; }
+        public int LocationFireExtinguisherId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
     
-        public virtual Area Area { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FireHydrantDetail> FireHydrantDetails { get; set; }
+        public virtual ICollection<FireExtinguisherDetails> FireExtinguisherDetails { get; set; }
+        public virtual LocationFireExtinguishers LocationFireExtinguishers { get; set; }
     }
 }

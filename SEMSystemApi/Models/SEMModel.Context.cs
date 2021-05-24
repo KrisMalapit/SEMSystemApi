@@ -26,30 +26,30 @@ namespace SEMSystemApi.Models
         }
     
         public virtual DbSet<C__EFMigrationsHistory> C__EFMigrationsHistory { get; set; }
-        public virtual DbSet<Area> Areas { get; set; }
-        public virtual DbSet<BicycleEntryDetail> BicycleEntryDetails { get; set; }
-        public virtual DbSet<BicycleEntryHeader> BicycleEntryHeaders { get; set; }
-        public virtual DbSet<Bicycle> Bicycles { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<EmergencyLightDetail> EmergencyLightDetails { get; set; }
-        public virtual DbSet<EmergencyLightHeader> EmergencyLightHeaders { get; set; }
-        public virtual DbSet<FireExtinguisherDetail> FireExtinguisherDetails { get; set; }
-        public virtual DbSet<FireExtinguisherHeader> FireExtinguisherHeaders { get; set; }
-        public virtual DbSet<FireHydrantDetail> FireHydrantDetails { get; set; }
-        public virtual DbSet<FireHydrantHeader> FireHydrantHeaders { get; set; }
-        public virtual DbSet<InergenTankDetail> InergenTankDetails { get; set; }
-        public virtual DbSet<InergenTankHeader> InergenTankHeaders { get; set; }
-        public virtual DbSet<ItemLog> ItemLogs { get; set; }
-        public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<LocationEmergencyLight> LocationEmergencyLights { get; set; }
-        public virtual DbSet<LocationFireExtinguisher> LocationFireExtinguishers { get; set; }
-        public virtual DbSet<LocationFireHydrant> LocationFireHydrants { get; set; }
-        public virtual DbSet<LocationInergenTank> LocationInergenTanks { get; set; }
-        public virtual DbSet<LocationItemDetail> LocationItemDetails { get; set; }
-        public virtual DbSet<Log> Logs { get; set; }
-        public virtual DbSet<NoSery> NoSeries { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Areas> Areas { get; set; }
+        public virtual DbSet<BicycleEntryDetails> BicycleEntryDetails { get; set; }
+        public virtual DbSet<BicycleEntryHeaders> BicycleEntryHeaders { get; set; }
+        public virtual DbSet<Bicycles> Bicycles { get; set; }
+        public virtual DbSet<Companies> Companies { get; set; }
+        public virtual DbSet<Departments> Departments { get; set; }
+        public virtual DbSet<EmergencyLightDetails> EmergencyLightDetails { get; set; }
+        public virtual DbSet<EmergencyLightHeaders> EmergencyLightHeaders { get; set; }
+        public virtual DbSet<FireExtinguisherDetails> FireExtinguisherDetails { get; set; }
+        public virtual DbSet<FireExtinguisherHeaders> FireExtinguisherHeaders { get; set; }
+        public virtual DbSet<FireHydrantDetails> FireHydrantDetails { get; set; }
+        public virtual DbSet<FireHydrantHeaders> FireHydrantHeaders { get; set; }
+        public virtual DbSet<InergenTankDetails> InergenTankDetails { get; set; }
+        public virtual DbSet<InergenTankHeaders> InergenTankHeaders { get; set; }
+        public virtual DbSet<ItemLogs> ItemLogs { get; set; }
+        public virtual DbSet<Items> Items { get; set; }
+        public virtual DbSet<LocationEmergencyLights> LocationEmergencyLights { get; set; }
+        public virtual DbSet<LocationFireExtinguishers> LocationFireExtinguishers { get; set; }
+        public virtual DbSet<LocationFireHydrants> LocationFireHydrants { get; set; }
+        public virtual DbSet<LocationInergenTanks> LocationInergenTanks { get; set; }
+        public virtual DbSet<LocationItemDetails> LocationItemDetails { get; set; }
+        public virtual DbSet<Logs> Logs { get; set; }
+        public virtual DbSet<NoSeries> NoSeries { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

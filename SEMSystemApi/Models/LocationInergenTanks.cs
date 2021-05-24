@@ -12,22 +12,23 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Department
+    public partial class LocationInergenTanks
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Department()
+        public LocationInergenTanks()
         {
-            this.Users = new HashSet<User>();
+            this.InergenTankHeaders = new HashSet<InergenTankHeaders>();
         }
     
-        public int ID { get; set; }
-        public string Code { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Capacity { get; set; }
+        public string Serial { get; set; }
+        public string Area { get; set; }
+        public int AreaId { get; set; }
         public string Status { get; set; }
-        public int CompanyId { get; set; }
     
-        public virtual Company Company { get; set; }
+        public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<InergenTankHeaders> InergenTankHeaders { get; set; }
     }
 }

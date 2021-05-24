@@ -471,7 +471,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Area</Value>
+                              <Value>Item</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -777,14 +777,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Area">
+                    <Textbox Name="ItemName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Area.Value</Value>
+                              <Value>=Fields!ItemName.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -793,7 +793,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Area</rd:DefaultName>
+                      <rd:DefaultName>ItemName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1490,8 +1490,8 @@
           <DataField>Remarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Location">
-          <DataField>Location</DataField>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CompanyId">
@@ -1526,10 +1526,14 @@
           <DataField>EquipmentType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Location">
+          <DataField>Location</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SEMDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\SEMSystemApi\SEMSystemApi\Models\SEMDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\NetCore\SEMSystemApi\SEMSystemApi\Models\SEMDataSet.xsd</rd:SchemaPath>
         <rd:TableName>InergenTank</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

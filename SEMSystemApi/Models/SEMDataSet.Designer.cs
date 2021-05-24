@@ -513,7 +513,7 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnRemarks;
             
-            private global::System.Data.DataColumn columnLocation;
+            private global::System.Data.DataColumn columnItemName;
             
             private global::System.Data.DataColumn columnCompanyId;
             
@@ -522,6 +522,8 @@ namespace SEMSystemApi.Models {
             private global::System.Data.DataColumn columnReviewedBy;
             
             private global::System.Data.DataColumn columnNotedBy;
+            
+            private global::System.Data.DataColumn columnLocation;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -654,9 +656,9 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LocationColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnLocation;
+                    return this.columnItemName;
                 }
             }
             
@@ -689,6 +691,14 @@ namespace SEMSystemApi.Models {
             public global::System.Data.DataColumn NotedByColumn {
                 get {
                     return this.columnNotedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
                 }
             }
             
@@ -742,11 +752,12 @@ namespace SEMSystemApi.Models {
                         string SafetySeal, 
                         string Hose, 
                         string Remarks, 
-                        string Location, 
+                        string ItemName, 
                         string CompanyId, 
                         string InspectedBy, 
                         string ReviewedBy, 
-                        string NotedBy) {
+                        string NotedBy, 
+                        string Location) {
                 FireExtinguisherRow rowFireExtinguisherRow = ((FireExtinguisherRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Plant,
@@ -761,11 +772,12 @@ namespace SEMSystemApi.Models {
                         SafetySeal,
                         Hose,
                         Remarks,
-                        Location,
+                        ItemName,
                         CompanyId,
                         InspectedBy,
                         ReviewedBy,
-                        NotedBy};
+                        NotedBy,
+                        Location};
                 rowFireExtinguisherRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFireExtinguisherRow);
                 return rowFireExtinguisherRow;
@@ -800,11 +812,12 @@ namespace SEMSystemApi.Models {
                 this.columnSafetySeal = base.Columns["SafetySeal"];
                 this.columnHose = base.Columns["Hose"];
                 this.columnRemarks = base.Columns["Remarks"];
-                this.columnLocation = base.Columns["Location"];
+                this.columnItemName = base.Columns["ItemName"];
                 this.columnCompanyId = base.Columns["CompanyId"];
                 this.columnInspectedBy = base.Columns["InspectedBy"];
                 this.columnReviewedBy = base.Columns["ReviewedBy"];
                 this.columnNotedBy = base.Columns["NotedBy"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -834,8 +847,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnHose);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
-                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLocation);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
                 this.columnCompanyId = new global::System.Data.DataColumn("CompanyId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompanyId);
                 this.columnInspectedBy = new global::System.Data.DataColumn("InspectedBy", typeof(string), null, global::System.Data.MappingType.Element);
@@ -844,6 +857,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnReviewedBy);
                 this.columnNotedBy = new global::System.Data.DataColumn("NotedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotedBy);
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -985,7 +1000,7 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnCode;
             
-            private global::System.Data.DataColumn columnLocation;
+            private global::System.Data.DataColumn columnItemName;
             
             private global::System.Data.DataColumn columnBattery;
             
@@ -1002,6 +1017,8 @@ namespace SEMSystemApi.Models {
             private global::System.Data.DataColumn columnReviewedBy;
             
             private global::System.Data.DataColumn columnNotedBy;
+            
+            private global::System.Data.DataColumn columnLocation;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1070,9 +1087,9 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LocationColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnLocation;
+                    return this.columnItemName;
                 }
             }
             
@@ -1142,6 +1159,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1177,14 +1202,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EmergencyLightRow AddEmergencyLightRow(string Plant, string Area, string CreatedAt, string Code, string Location, string Battery, string Bulb, string Usable, string Remarks, string CompanyId, string InspectedBy, string ReviewedBy, string NotedBy) {
+            public EmergencyLightRow AddEmergencyLightRow(string Plant, string Area, string CreatedAt, string Code, string ItemName, string Battery, string Bulb, string Usable, string Remarks, string CompanyId, string InspectedBy, string ReviewedBy, string NotedBy, string Location) {
                 EmergencyLightRow rowEmergencyLightRow = ((EmergencyLightRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Plant,
                         Area,
                         CreatedAt,
                         Code,
-                        Location,
+                        ItemName,
                         Battery,
                         Bulb,
                         Usable,
@@ -1192,7 +1217,8 @@ namespace SEMSystemApi.Models {
                         CompanyId,
                         InspectedBy,
                         ReviewedBy,
-                        NotedBy};
+                        NotedBy,
+                        Location};
                 rowEmergencyLightRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmergencyLightRow);
                 return rowEmergencyLightRow;
@@ -1219,7 +1245,7 @@ namespace SEMSystemApi.Models {
                 this.columnArea = base.Columns["Area"];
                 this.columnCreatedAt = base.Columns["CreatedAt"];
                 this.columnCode = base.Columns["Code"];
-                this.columnLocation = base.Columns["Location"];
+                this.columnItemName = base.Columns["ItemName"];
                 this.columnBattery = base.Columns["Battery"];
                 this.columnBulb = base.Columns["Bulb"];
                 this.columnUsable = base.Columns["Usable"];
@@ -1228,6 +1254,7 @@ namespace SEMSystemApi.Models {
                 this.columnInspectedBy = base.Columns["InspectedBy"];
                 this.columnReviewedBy = base.Columns["ReviewedBy"];
                 this.columnNotedBy = base.Columns["NotedBy"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1241,8 +1268,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnCreatedAt);
                 this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCode);
-                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLocation);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
                 this.columnBattery = new global::System.Data.DataColumn("Battery", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBattery);
                 this.columnBulb = new global::System.Data.DataColumn("Bulb", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1259,7 +1286,9 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnReviewedBy);
                 this.columnNotedBy = new global::System.Data.DataColumn("NotedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotedBy);
-                this.columnLocation.Caption = "Type";
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
+                this.columnItemName.Caption = "Type";
                 this.columnBattery.Caption = "Capacity";
                 this.columnBulb.Caption = "Cylinder";
                 this.columnUsable.Caption = "Lever";
@@ -1410,7 +1439,7 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnRemarks;
             
-            private global::System.Data.DataColumn columnLocation;
+            private global::System.Data.DataColumn columnItemName;
             
             private global::System.Data.DataColumn columnCompanyId;
             
@@ -1427,6 +1456,8 @@ namespace SEMSystemApi.Models {
             private global::System.Data.DataColumn columnCapacity;
             
             private global::System.Data.DataColumn columnEquipmentType;
+            
+            private global::System.Data.DataColumn columnLocation;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1519,9 +1550,9 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LocationColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnLocation;
+                    return this.columnItemName;
                 }
             }
             
@@ -1591,6 +1622,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1634,7 +1673,7 @@ namespace SEMSystemApi.Models {
                         string Gauge, 
                         string Hose, 
                         string Remarks, 
-                        string Location, 
+                        string ItemName, 
                         string CompanyId, 
                         string InspectedBy, 
                         string ReviewedBy, 
@@ -1642,7 +1681,8 @@ namespace SEMSystemApi.Models {
                         string Pressure, 
                         string Serial, 
                         string Capacity, 
-                        string EquipmentType) {
+                        string EquipmentType, 
+                        string Location) {
                 InergenTankRow rowInergenTankRow = ((InergenTankRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Area,
@@ -1652,7 +1692,7 @@ namespace SEMSystemApi.Models {
                         Gauge,
                         Hose,
                         Remarks,
-                        Location,
+                        ItemName,
                         CompanyId,
                         InspectedBy,
                         ReviewedBy,
@@ -1660,7 +1700,8 @@ namespace SEMSystemApi.Models {
                         Pressure,
                         Serial,
                         Capacity,
-                        EquipmentType};
+                        EquipmentType,
+                        Location};
                 rowInergenTankRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInergenTankRow);
                 return rowInergenTankRow;
@@ -1690,7 +1731,7 @@ namespace SEMSystemApi.Models {
                 this.columnGauge = base.Columns["Gauge"];
                 this.columnHose = base.Columns["Hose"];
                 this.columnRemarks = base.Columns["Remarks"];
-                this.columnLocation = base.Columns["Location"];
+                this.columnItemName = base.Columns["ItemName"];
                 this.columnCompanyId = base.Columns["CompanyId"];
                 this.columnInspectedBy = base.Columns["InspectedBy"];
                 this.columnReviewedBy = base.Columns["ReviewedBy"];
@@ -1699,6 +1740,7 @@ namespace SEMSystemApi.Models {
                 this.columnSerial = base.Columns["Serial"];
                 this.columnCapacity = base.Columns["Capacity"];
                 this.columnEquipmentType = base.Columns["EquipmentType"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1718,8 +1760,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnHose);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
-                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLocation);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
                 this.columnCompanyId = new global::System.Data.DataColumn("CompanyId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompanyId);
                 this.columnInspectedBy = new global::System.Data.DataColumn("InspectedBy", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1736,6 +1778,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnCapacity);
                 this.columnEquipmentType = new global::System.Data.DataColumn("EquipmentType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEquipmentType);
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1893,7 +1937,7 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnRemarks;
             
-            private global::System.Data.DataColumn columnLocation;
+            private global::System.Data.DataColumn columnItemName;
             
             private global::System.Data.DataColumn columnCompanyId;
             
@@ -1902,6 +1946,8 @@ namespace SEMSystemApi.Models {
             private global::System.Data.DataColumn columnReviewedBy;
             
             private global::System.Data.DataColumn columnNotedBy;
+            
+            private global::System.Data.DataColumn columnLocation;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -2034,9 +2080,9 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LocationColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnLocation;
+                    return this.columnItemName;
                 }
             }
             
@@ -2069,6 +2115,14 @@ namespace SEMSystemApi.Models {
             public global::System.Data.DataColumn NotedByColumn {
                 get {
                     return this.columnNotedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
                 }
             }
             
@@ -2122,11 +2176,12 @@ namespace SEMSystemApi.Models {
                         string Nozzle25, 
                         string SpecialTools, 
                         string Remarks, 
-                        string Location, 
+                        string ItemName, 
                         string CompanyId, 
                         string InspectedBy, 
                         string ReviewedBy, 
-                        string NotedBy) {
+                        string NotedBy, 
+                        string Location) {
                 FireHydrantRow rowFireHydrantRow = ((FireHydrantRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Plant,
@@ -2141,11 +2196,12 @@ namespace SEMSystemApi.Models {
                         Nozzle25,
                         SpecialTools,
                         Remarks,
-                        Location,
+                        ItemName,
                         CompanyId,
                         InspectedBy,
                         ReviewedBy,
-                        NotedBy};
+                        NotedBy,
+                        Location};
                 rowFireHydrantRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFireHydrantRow);
                 return rowFireHydrantRow;
@@ -2180,11 +2236,12 @@ namespace SEMSystemApi.Models {
                 this.columnNozzle25 = base.Columns["Nozzle25"];
                 this.columnSpecialTools = base.Columns["SpecialTools"];
                 this.columnRemarks = base.Columns["Remarks"];
-                this.columnLocation = base.Columns["Location"];
+                this.columnItemName = base.Columns["ItemName"];
                 this.columnCompanyId = base.Columns["CompanyId"];
                 this.columnInspectedBy = base.Columns["InspectedBy"];
                 this.columnReviewedBy = base.Columns["ReviewedBy"];
                 this.columnNotedBy = base.Columns["NotedBy"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2214,8 +2271,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnSpecialTools);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
-                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLocation);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
                 this.columnCompanyId = new global::System.Data.DataColumn("CompanyId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompanyId);
                 this.columnInspectedBy = new global::System.Data.DataColumn("InspectedBy", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2224,6 +2281,8 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnReviewedBy);
                 this.columnNotedBy = new global::System.Data.DataColumn("NotedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotedBy);
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
                 this.columnGlassCabinet.Caption = "Type";
                 this.columnHanger.Caption = "Capacity";
                 this.columnHose15.Caption = "Cylinder";
@@ -4006,17 +4065,17 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Location {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableFireExtinguisher.LocationColumn]));
+                        return ((string)(this[this.tableFireExtinguisher.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'FireExtinguisher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'FireExtinguisher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFireExtinguisher.LocationColumn] = value;
+                    this[this.tableFireExtinguisher.ItemNameColumn] = value;
                 }
             }
             
@@ -4081,6 +4140,22 @@ namespace SEMSystemApi.Models {
                 }
                 set {
                     this[this.tableFireExtinguisher.NotedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Location {
+                get {
+                    try {
+                        return ((string)(this[this.tableFireExtinguisher.LocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'FireExtinguisher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFireExtinguisher.LocationColumn] = value;
                 }
             }
             
@@ -4230,14 +4305,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLocationNull() {
-                return this.IsNull(this.tableFireExtinguisher.LocationColumn);
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableFireExtinguisher.ItemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLocationNull() {
-                this[this.tableFireExtinguisher.LocationColumn] = global::System.Convert.DBNull;
+            public void SetItemNameNull() {
+                this[this.tableFireExtinguisher.ItemNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4286,6 +4361,18 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNotedByNull() {
                 this[this.tableFireExtinguisher.NotedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocationNull() {
+                return this.IsNull(this.tableFireExtinguisher.LocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocationNull() {
+                this[this.tableFireExtinguisher.LocationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4369,17 +4456,17 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Location {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableEmergencyLight.LocationColumn]));
+                        return ((string)(this[this.tableEmergencyLight.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'EmergencyLight\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'EmergencyLight\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableEmergencyLight.LocationColumn] = value;
+                    this[this.tableEmergencyLight.ItemNameColumn] = value;
                 }
             }
             
@@ -4513,6 +4600,22 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Location {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmergencyLight.LocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'EmergencyLight\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmergencyLight.LocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPlantNull() {
                 return this.IsNull(this.tableEmergencyLight.PlantColumn);
             }
@@ -4561,14 +4664,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLocationNull() {
-                return this.IsNull(this.tableEmergencyLight.LocationColumn);
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableEmergencyLight.ItemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLocationNull() {
-                this[this.tableEmergencyLight.LocationColumn] = global::System.Convert.DBNull;
+            public void SetItemNameNull() {
+                this[this.tableEmergencyLight.ItemNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4665,6 +4768,18 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNotedByNull() {
                 this[this.tableEmergencyLight.NotedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocationNull() {
+                return this.IsNull(this.tableEmergencyLight.LocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocationNull() {
+                this[this.tableEmergencyLight.LocationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4796,17 +4911,17 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Location {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableInergenTank.LocationColumn]));
+                        return ((string)(this[this.tableInergenTank.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'InergenTank\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'InergenTank\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInergenTank.LocationColumn] = value;
+                    this[this.tableInergenTank.ItemNameColumn] = value;
                 }
             }
             
@@ -4940,6 +5055,22 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Location {
+                get {
+                    try {
+                        return ((string)(this[this.tableInergenTank.LocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'InergenTank\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInergenTank.LocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsAreaNull() {
                 return this.IsNull(this.tableInergenTank.AreaColumn);
             }
@@ -5024,14 +5155,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLocationNull() {
-                return this.IsNull(this.tableInergenTank.LocationColumn);
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableInergenTank.ItemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLocationNull() {
-                this[this.tableInergenTank.LocationColumn] = global::System.Convert.DBNull;
+            public void SetItemNameNull() {
+                this[this.tableInergenTank.ItemNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5128,6 +5259,18 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquipmentTypeNull() {
                 this[this.tableInergenTank.EquipmentTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocationNull() {
+                return this.IsNull(this.tableInergenTank.LocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocationNull() {
+                this[this.tableInergenTank.LocationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5339,17 +5482,17 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Location {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableFireHydrant.LocationColumn]));
+                        return ((string)(this[this.tableFireHydrant.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'FireHydrant\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'FireHydrant\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFireHydrant.LocationColumn] = value;
+                    this[this.tableFireHydrant.ItemNameColumn] = value;
                 }
             }
             
@@ -5414,6 +5557,22 @@ namespace SEMSystemApi.Models {
                 }
                 set {
                     this[this.tableFireHydrant.NotedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Location {
+                get {
+                    try {
+                        return ((string)(this[this.tableFireHydrant.LocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Location\' in table \'FireHydrant\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFireHydrant.LocationColumn] = value;
                 }
             }
             
@@ -5563,14 +5722,14 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsLocationNull() {
-                return this.IsNull(this.tableFireHydrant.LocationColumn);
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableFireHydrant.ItemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetLocationNull() {
-                this[this.tableFireHydrant.LocationColumn] = global::System.Convert.DBNull;
+            public void SetItemNameNull() {
+                this[this.tableFireHydrant.ItemNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5619,6 +5778,18 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNotedByNull() {
                 this[this.tableFireHydrant.NotedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocationNull() {
+                return this.IsNull(this.tableFireHydrant.LocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocationNull() {
+                this[this.tableFireHydrant.LocationColumn] = global::System.Convert.DBNull;
             }
         }
         

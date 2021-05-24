@@ -12,17 +12,13 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LocationItemDetail
+    public partial class Logs
     {
         public int Id { get; set; }
-        public string Equipment { get; set; }
-        public int HeaderId { get; set; }
-        public int ItemId { get; set; }
-        public System.DateTime CreatedDate { get; set; }
+        public string Descriptions { get; set; }
+        public string Action { get; set; }
         public string Status { get; set; }
-        public string UpdatedBy { get; set; }
-        public System.DateTime DateCreated { get; set; }
-    
-        public virtual Item Item { get; set; }
+        public string UserId { get; set; }
+        public System.DateTime CreatedDate { get; set; }
     }
 }

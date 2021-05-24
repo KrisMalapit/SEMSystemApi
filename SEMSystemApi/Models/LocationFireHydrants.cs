@@ -12,23 +12,22 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Company
+    public partial class LocationFireHydrants
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Company()
+        public LocationFireHydrants()
         {
-            this.Areas = new HashSet<Area>();
-            this.Departments = new HashSet<Department>();
+            this.FireHydrantHeaders = new HashSet<FireHydrantHeaders>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
+        public string Location { get; set; }
         public string Code { get; set; }
-        public string Name { get; set; }
+        public int AreaId { get; set; }
         public string Status { get; set; }
     
+        public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Area> Areas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Department> Departments { get; set; }
+        public virtual ICollection<FireHydrantHeaders> FireHydrantHeaders { get; set; }
     }
 }

@@ -390,14 +390,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Location">
+                    <Textbox Name="ItemName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Location.Value</Value>
+                              <Value>=Fields!ItemName.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -406,7 +406,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Location</rd:DefaultName>
+                      <rd:DefaultName>ItemName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -485,7 +485,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -521,7 +520,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -557,7 +555,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -887,7 +884,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Area.Value, "EmergencyLight")</Value>
+                  <Value>=First(Fields!Area.Value, "EmergencyLight") &amp; " - " &amp; First(Fields!Location.Value, "EmergencyLight")</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1445,8 +1442,8 @@
           <DataField>Code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Location">
-          <DataField>Location</DataField>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Battery">
@@ -1481,10 +1478,14 @@
           <DataField>NotedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Location">
+          <DataField>Location</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SEMDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\SEMSystemApi\SEMSystemApi\Models\SEMDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\NetCore\SEMSystemApi\SEMSystemApi\Models\SEMDataSet.xsd</rd:SchemaPath>
         <rd:TableName>EmergencyLight</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

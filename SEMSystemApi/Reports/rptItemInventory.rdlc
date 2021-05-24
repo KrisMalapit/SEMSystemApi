@@ -391,7 +391,6 @@
                                                 <Style>
                                                   <FontSize>8pt</FontSize>
                                                   <Format>MM/dd/yyyy</Format>
-                                                  <Color>Red</Color>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -947,7 +946,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox25</rd:DefaultName>
-          <Top>0in</Top>
           <Left>6.57167in</Left>
           <Height>0.16667in</Height>
           <Width>1.42833in</Width>

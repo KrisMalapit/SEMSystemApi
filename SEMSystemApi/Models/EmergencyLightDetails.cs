@@ -12,24 +12,23 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FireExtinguisherDetail
+    public partial class EmergencyLightDetails
     {
         public int Id { get; set; }
-        public int LocationFireExtinguisherId { get; set; }
-        public int Cylinder { get; set; }
-        public int Lever { get; set; }
-        public int Gauge { get; set; }
-        public int SafetySeal { get; set; }
-        public int Hose { get; set; }
+        public int ItemId { get; set; }
+        public int Battery { get; set; }
+        public int Bulb { get; set; }
+        public int Usable { get; set; }
         public string Remarks { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
-        public int FireExtinguisherHeaderId { get; set; }
+        public int EmergencyLightHeaderId { get; set; }
         public string InspectedBy { get; set; }
         public string NotedBy { get; set; }
         public string ReviewedBy { get; set; }
     
-        public virtual FireExtinguisherHeader FireExtinguisherHeader { get; set; }
+        public virtual EmergencyLightHeaders EmergencyLightHeaders { get; set; }
+        public virtual Items Items { get; set; }
     }
 }

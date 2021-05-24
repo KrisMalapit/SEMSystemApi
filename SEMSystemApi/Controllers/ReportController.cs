@@ -13,6 +13,7 @@ namespace SEMSystemApi.Controllers
 {
     public class ReportController : ApiController
     {
+
         private SEMEntities db = new SEMEntities();
         string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -56,52 +57,105 @@ namespace SEMSystemApi.Controllers
                 DateTime def = new DateTime(1, 1, 1);
                 if (rptVM.Report == "rptFireExtinguisher")
                 {
+                    //var v = db.FireExtinguisherDetails
+                    //    .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId) //A
+                    //  .GroupJoin(
+                    //     db.LocationFireExtinguishers // B
+                    //     .Where(a => a.Status == "Active"),
+                    //     i => i.LocationFireExtinguisherId, //A key
+                    //     p => p.Id,//B key
+                    //     (i, g) =>
+                    //        new
+                    //        {
+                    //            i, //holds A data
+                    //            g  //holds B data
+                    //        }
+                    //  )
+                    //  .SelectMany(
+                    //     temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                    //     (A, B) =>
+                    //        new
+                    //        {
+
+                    //            Id = A.i.LocationFireExtinguisherId,
+                    //            Plant = B.Area.Company.Name,
+                    //            B.Area.CompanyId,
+                    //            Area = B.Area.Name,
+                    //            B.Location,
+                    //            A.i.CreatedAt,
+                    //            B.Code,
+                    //            B.Type,
+                    //            B.Capacity,
+                    //            A.i.Cylinder,
+                    //            A.i.Lever,
+                    //            A.i.Gauge,
+                    //            A.i.SafetySeal,
+                    //            A.i.Hose,
+                    //            A.i.Remarks,
+                    //            A.i.InspectedBy,
+                    //            A.i.ReviewedBy,
+                    //            A.i.NotedBy
+
+                    //        }
+                    //  );
+
+
                     var v = db.FireExtinguisherDetails
-                        .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId) //A
-                      .GroupJoin(
-                         db.LocationFireExtinguishers // B
-                         .Where(a => a.Status == "Active"),
-                         i => i.LocationFireExtinguisherId, //A key
-                         p => p.Id,//B key
-                         (i, g) =>
-                            new
-                            {
-                                i, //holds A data
-                                g  //holds B data
-                            }
-                      )
-                      .SelectMany(
-                         temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                         (A, B) =>
-                            new
-                            {
+                    .Where(a => a.FireExtinguisherHeaders.Status == "Active")
+                     .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId)//A
+                    .GroupJoin(
+                            db.LocationFireExtinguishers // B
+                            .Where(a => a.Status == "Active"),
+                            i => i.FireExtinguisherHeaders.LocationFireExtinguisherId, //A key
+                            p => p.Id,//B key
+                            (i, g) =>
+                                new
+                                {
+                                    i, //holds A data
+                                    g  //holds B data
+                                }
+                            )
+                            .SelectMany(
+                            temp => temp.g.DefaultIfEmpty(), //gets data and transfer to B
+                            (A, B) =>
+                                 new
+                                 {
 
-                                Id = A.i.LocationFireExtinguisherId,
-                                Plant = B.Area.Company.Name,
-                                B.Area.CompanyId,
-                                Area = B.Area.Name,
-                                B.Location,
-                                A.i.CreatedAt,
-                                B.Code,
-                                B.Type,
-                                B.Capacity,
-                                A.i.Cylinder,
-                                A.i.Lever,
-                                A.i.Gauge,
-                                A.i.SafetySeal,
-                                A.i.Hose,
-                                A.i.Remarks,
-                                A.i.InspectedBy,
-                                A.i.ReviewedBy,
-                                A.i.NotedBy
+                                     id = A.i.ItemId,
+                                     ItemName = A.i.Items.Name,
+                                     A.i.Cylinder,
+                                     A.i.Lever,
+                                     A.i.Gauge,
+                                     A.i.SafetySeal,
+                                     A.i.Hose,
+                                     A.i.Remarks,
+                                     A.i.Items.Code,
+                                     B.Type,
+                                     B.Capacity,
+                                     A.i.InspectedBy,
+                                     A.i.ReviewedBy,
+                                     A.i.NotedBy,
+                                     CompanyName = B.Areas.Companies.Name,
+                                     HeaderId = A.i.FireExtinguisherHeaderId,
+                                     B.Location,
+                                     Plant = B.Areas.Companies.Name,
+                                     CompanyId = B.Areas.Companies.ID,
+                                     Area = B.Areas.Name,
+                                     A.i.CreatedAt,
 
-                            }
-                      );
-                    if (rptVM.fromDate != def)
-                    {
-                        v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
-                    }
-                    var lsts = v.OrderBy(a => a.Location).ToList();
+
+                                 }
+                            );
+
+
+
+
+
+                    //if (rptVM.fromDate != def)
+                    //{
+                    //    v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
+                    //}
+                    var lsts = v.OrderBy(a => a.ItemName).ToList();
                     DataTable dts = new DataTable();
                     dts = ToDataTable(lsts);
                     ReportDataSource datasources = new ReportDataSource("FireExtinguisher", dts);
@@ -112,50 +166,90 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptEmergencyLight")
                 {
+                    //var v = db.EmergencyLightDetails
+                    //           .Where(a => a.EmergencyLightHeaderId == rptVM.ReferenceId)//A                                              
+                    //           .GroupJoin(
+                    //              db.LocationEmergencyLights // B
+                    //              .Where(a => a.Status == "Active"),
+                    //              i => i.LocationEmergencyLightId, //A key
+                    //              p => p.Id,//B key
+                    //              (i, g) =>
+                    //                 new
+                    //                 {
+                    //                     i, //holds A data
+                    //                     g  //holds B data
+                    //                 }
+                    //           )
+                    //           .SelectMany(
+                    //              temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                    //              (A, B) =>
+                    //                 new
+                    //                 {
+                    //                     Plant = B.Area.Company.Name,
+                    //                     Area = B.Area.Name,
+                    //                     B.Location,
+                    //                     B.Code,
+                    //                     Id = A.i.LocationEmergencyLightId,
+
+                    //                     A.i.Battery,
+                    //                     A.i.Bulb,
+                    //                     A.i.Usable,
+                    //                     A.i.Remarks,
+
+                    //                     A.i.InspectedBy,
+                    //                     A.i.ReviewedBy,
+                    //                     A.i.NotedBy,
+                    //                     A.i.CreatedAt,
+                    //                     B.Area.CompanyId,
+                    //                     HeaderId = A.i.EmergencyLightHeaderId
+                    //                 }
+                    //           );
                     var v = db.EmergencyLightDetails
-                               .Where(a => a.EmergencyLightHeaderId == rptVM.ReferenceId)//A                                              
-                               .GroupJoin(
-                                  db.LocationEmergencyLights // B
-                                  .Where(a => a.Status == "Active"),
-                                  i => i.LocationEmergencyLightId, //A key
-                                  p => p.Id,//B key
-                                  (i, g) =>
-                                     new
-                                     {
-                                         i, //holds A data
-                                         g  //holds B data
-                                     }
-                               )
-                               .SelectMany(
-                                  temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                                  (A, B) =>
-                                     new
-                                     {
-                                         Plant = B.Area.Company.Name,
-                                         Area = B.Area.Name,
-                                         B.Location,
-                                         B.Code,
-                                         Id = A.i.LocationEmergencyLightId,
+                    .Where(a => a.EmergencyLightHeaders.Status == "Active")
+                    .Where(a => a.EmergencyLightHeaderId == rptVM.ReferenceId)//A
+                    .GroupJoin(
+                            db.LocationEmergencyLights // B
+                            .Where(a => a.Status == "Active"),
+                            i => i.EmergencyLightHeaders.LocationEmergencyLightId, //A key
+                            p => p.Id,//B key
+                            (i, g) =>
+                                new
+                                {
+                                    i, //holds A data
+                                    g  //holds B data
+                                }
+                            )
+                            .SelectMany(
+                            temp => temp.g.DefaultIfEmpty(), //gets data and transfer to B
+                            (A, B) =>
+                                 new
+                                 {
 
-                                         A.i.Battery,
-                                         A.i.Bulb,
-                                         A.i.Usable,
-                                         A.i.Remarks,
-                                        
-                                         A.i.InspectedBy,
-                                         A.i.ReviewedBy,
-                                         A.i.NotedBy,
-                                         A.i.CreatedAt,
-                                         B.Area.CompanyId,
-                                         HeaderId = A.i.EmergencyLightHeaderId
-                                     }
-                               );
+                                     id = A.i.ItemId,
+                                     ItemName = A.i.Items.Name,
+                                     A.i.Battery,
+                                     A.i.Bulb,
+                                     A.i.Usable,
+                                     A.i.Remarks,
+                                     A.i.Items.Code,
+                                     A.i.InspectedBy,
+                                     A.i.ReviewedBy,
+                                     A.i.NotedBy,
+                                     B.Location,
+                                     CompanyName = B.Areas.Companies.Name,
+                                     HeaderId = A.i.EmergencyLightHeaderId,
 
-                    if (rptVM.fromDate != def)
-                    {
-                        v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
-                    }
-                    var lsts = v.OrderBy(a => a.Location).ToList();
+                                     Plant = B.Areas.Companies.Name,
+                                     CompanyId = B.Areas.Companies.ID,
+                                     Area = B.Areas.Name,
+                                     A.i.CreatedAt,
+                                 }
+                            );
+                    //if (rptVM.fromDate != def)
+                    //{
+                    //    v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
+                    //}
+                    var lsts = v.OrderBy(a => a.ItemName).ToList();
                     DataTable dts = new DataTable();
                     dts = ToDataTable(lsts);
                     ReportDataSource datasources = new ReportDataSource("EmergencyLight", dts);
@@ -165,59 +259,108 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptInergenTank")
                 {
+                    //var v = db.InergenTankDetails
+                    //.Where(a => a.InergenTankHeaderId == rptVM.ReferenceId)//A                                                 
+                    //.GroupJoin(
+                    //   db.LocationInergenTanks // B
+                    //   .Where(a => a.Status == "Active"),
+                    //   i => i.LocationInergenTankId, //A key
+                    //   p => p.Id,//B key
+                    //   (i, g) =>
+                    //      new
+                    //      {
+                    //          i, //holds A data
+                    //          g  //holds B data
+                    //      }
+                    //)
+                    //.SelectMany(
+                    //   temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                    //   (A, B) =>
+                    //      new
+                    //      {
+
+                    //          Id = A.i.LocationInergenTankId,
+                    //          Location = B.Area1.Name,
+
+                    //          B.Area1.Code,
+
+                    //          A.i.Cylinder,
+                    //          A.i.Gauge,
+                    //          A.i.Hose,
+                    //          A.i.Pressure,
+                    //          A.i.Remarks,
+
+
+                    //          A.i.InspectedBy,
+                    //          A.i.ReviewedBy,
+                    //          A.i.NotedBy,
+                    //          A.i.CreatedAt,
+                    //          B.Serial,
+
+                    //          B.Capacity,
+                    //          B.Area,
+
+                    //          EquipmentType = "INERGEN",
+                    //          B.Area1.CompanyId,
+                    //          CompanyName = B.Area1.Company.Name,
+                    //          HeaderId = A.i.InergenTankHeaderId
+                    //      }
+                    //);
+
+                    //if (rptVM.fromDate != def)
+                    //{
+                    //    v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
+                    //}
+
                     var v = db.InergenTankDetails
-                    .Where(a => a.InergenTankHeaderId == rptVM.ReferenceId)//A                                                 
+                    .Where(a => a.InergenTankHeaders.Status == "Active")
+                    .Where(a => a.InergenTankHeaderId == rptVM.ReferenceId)//A   
                     .GroupJoin(
-                       db.LocationInergenTanks // B
-                       .Where(a => a.Status == "Active"),
-                       i => i.LocationInergenTankId, //A key
-                       p => p.Id,//B key
-                       (i, g) =>
-                          new
-                          {
-                              i, //holds A data
-                              g  //holds B data
-                          }
-                    )
-                    .SelectMany(
-                       temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                       (A, B) =>
-                          new
-                          {
+                            db.LocationInergenTanks // B
+                            .Where(a => a.Status == "Active"),
+                            i => i.InergenTankHeaders.LocationInergenTankId, //A key
+                            p => p.Id,//B key
+                            (i, g) =>
+                                new
+                                {
+                                    i, //holds A data
+                                    g  //holds B data
+                                }
+                            )
+                            .SelectMany(
+                            temp => temp.g.DefaultIfEmpty(), //gets data and transfer to B
+                            (A, B) =>
+                                 new
+                                 {
 
-                              Id = A.i.LocationInergenTankId,
-                              Location = B.Area1.Name,
+                                     id = A.i.ItemId,
+                                     ItemName = A.i.Items.Name,
+                                     A.i.Items.Code,
+                                     A.i.Cylinder,
 
-                              B.Area1.Code,
+                                     A.i.Gauge,
+                                     A.i.Pressure,
+                                     A.i.Hose,
+                                     A.i.Remarks,
+                                     Location = B.Area,
+                                     B.Serial,
+                                     B.Capacity,
+                                     A.i.InspectedBy,
+                                     A.i.ReviewedBy,
+                                     A.i.NotedBy,
+                                     CompanyName = B.Areas.Companies.Name,
+                                     HeaderId = A.i.InergenTankHeaderId,
+                                     A.i.Items.EquipmentType,
+                                     Plant = B.Areas.Companies.Name,
+                                     CompanyId = B.Areas.Companies.ID,
+                                     Area = B.Areas.Name,
+                                     A.i.CreatedAt,
 
-                              A.i.Cylinder,
-                              A.i.Gauge,
-                              A.i.Hose,
-                              A.i.Pressure,
-                              A.i.Remarks,
+                                 }
+                            );
 
 
-                              A.i.InspectedBy,
-                              A.i.ReviewedBy,
-                              A.i.NotedBy,
-                              A.i.CreatedAt,
-                              B.Serial,
-
-                              B.Capacity,
-                              B.Area,
-
-                              EquipmentType = "INERGEN",
-                              B.Area1.CompanyId,
-                              CompanyName = B.Area1.Company.Name,
-                              HeaderId = A.i.InergenTankHeaderId
-                          }
-                    );
-
-                    if (rptVM.fromDate != def)
-                    {
-                        v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
-                    }
-                    var lsts = v.OrderBy(a => a.Location).ToList();
+                    var lsts = v.OrderBy(a => a.ItemName).ToList();
                     DataTable dts = new DataTable();
                     dts = ToDataTable(lsts);
                     ReportDataSource datasources = new ReportDataSource("InergenTank", dts);
@@ -227,57 +370,105 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptFireHydrant")
                 {
+                    //var v = db.FireHydrantDetails
+                    // .Where(a => a.FireHydrantHeaderId == rptVM.ReferenceId)//A          
+                    // //.Where(a => a.FireHydrantHeaderId == id) //A
+                    //           .GroupJoin(
+                    //              db.LocationFireHydrants // B
+                    //              .Where(a => a.Status == "Active"),
+                    //              i => i.LocationFireHydrantId, //A key
+                    //              p => p.Id,//B key
+                    //              (i, g) =>
+                    //                 new
+                    //                 {
+                    //                     i, //holds A data
+                    //                     g  //holds B data
+                    //                 }
+                    //           )
+                    //           .SelectMany(
+                    //              temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                    //              (A, B) =>
+                    //                 new
+                    //                 {
+
+                    //                     Id = A.i.LocationFireHydrantId,
+
+                    //                     A.i.GlassCabinet,
+                    //                     A.i.Hanger,
+                    //                     A.i.Hose15,
+                    //                     A.i.Nozzle15,
+                    //                     A.i.Hose25,
+                    //                     A.i.Nozzle25,
+                    //                     A.i.SpecialTools,
+
+                    //                     A.i.Remarks,
+                    //                     B.Location,
+                    //                     B.Code,
+                    //                     A.i.InspectedBy,
+                    //                     A.i.ReviewedBy,
+                    //                     A.i.NotedBy,
+
+                    //                     CompanyName = B.Area.Company.Name,
+                    //                     HeaderId = A.i.FireHydrantHeaderId,
+                    //                     B.Area.CompanyId,
+                    //                     A.i.CreatedAt
+
+                    //                 }
+                    //           );
+
+                    //if (rptVM.fromDate != def)
+                    //{
+                    //    v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
+                    //}
+
                     var v = db.FireHydrantDetails
-                     .Where(a => a.FireHydrantHeaderId == rptVM.ReferenceId)//A          
-                                                                            //.Where(a => a.FireHydrantHeaderId == id) //A
-                               .GroupJoin(
-                                  db.LocationFireHydrants // B
-                                  .Where(a => a.Status == "Active"),
-                                  i => i.LocationFireHydrantId, //A key
-                                  p => p.Id,//B key
-                                  (i, g) =>
-                                     new
-                                     {
-                                         i, //holds A data
-                                         g  //holds B data
-                                     }
+                       .Where(a => a.FireHydrantHeaders.Status == "Active")
+                       .Where(a => a.FireHydrantHeaderId == rptVM.ReferenceId)//A         
+                       .GroupJoin(
+                               db.LocationFireHydrants // B
+                               .Where(a => a.Status == "Active"),
+                               i => i.FireHydrantHeaders.LocationFireHydrantId, //A key
+                               p => p.Id,//B key
+                               (i, g) =>
+                                   new
+                                   {
+                                       i, //holds A data
+                                       g  //holds B data
+                                   }
                                )
                                .SelectMany(
-                                  temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                                  (A, B) =>
-                                     new
-                                     {
+                               temp => temp.g.DefaultIfEmpty(), //gets data and transfer to B
+                               (A, B) =>
+                                    new
+                                    {
+                                        Id = A.i.ItemId,
+                                        ItemName = A.i.Items.Name,
+                                        A.i.Items.Code,
+                                        A.i.GlassCabinet,
+                                        A.i.Hanger,
+                                        A.i.Hose15,
+                                        A.i.Nozzle15,
+                                        A.i.Hose25,
+                                        A.i.Nozzle25,
+                                        A.i.SpecialTools,
+                                        A.i.InspectedBy,
+                                        A.i.ReviewedBy,
+                                        A.i.NotedBy,
+                                        A.i.Remarks,
+                                        CompanyName = B.Areas.Companies.Name,
+                                        HeaderId = A.i.FireHydrantHeaderId,
+                                        B.Location,
 
-                                         Id = A.i.LocationFireHydrantId,
+                                        Plant = B.Areas.Companies.Name,
+                                        CompanyId = B.Areas.Companies.ID,
+                                        Area = B.Areas.Name,
+                                        A.i.CreatedAt,
 
-                                         A.i.GlassCabinet,
-                                         A.i.Hanger,
-                                         A.i.Hose15,
-                                         A.i.Nozzle15,
-                                         A.i.Hose25,
-                                         A.i.Nozzle25,
-                                         A.i.SpecialTools,
-
-                                         A.i.Remarks,
-                                         B.Location,
-                                         B.Code,
-                                         A.i.InspectedBy,
-                                         A.i.ReviewedBy,
-                                         A.i.NotedBy,
-
-                                         CompanyName = B.Area.Company.Name,
-                                         HeaderId = A.i.FireHydrantHeaderId,
-                                         B.Area.CompanyId,
-                                         A.i.CreatedAt
-                                         
-                                     }
+                                    }
                                );
 
-                    if (rptVM.fromDate != def)
-                    {
-                        v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
-                    }
-                    var lsts = v.OrderBy(a => a.Location).ToList();
+
+                    var lsts = v.OrderBy(a => a.ItemName).ToList();
                     DataTable dts = new DataTable();
                     dts = ToDataTable(lsts);
                     ReportDataSource datasources = new ReportDataSource("FireHydrant", dts);
@@ -289,16 +480,16 @@ namespace SEMSystemApi.Controllers
                 {
                     var v = db.BicycleEntryDetails
                             .Where(a => a.BicycleEntryHeaderId == rptVM.ReferenceId)
-                            .Select (a=> new
+                            .Select(a => new
                             {
-                               
-                              
-                                a.BicycleEntryHeader.Bicycle.NameOwner,
-                                a.BicycleEntryHeader.Bicycle.ContactNo,
-                                a.BicycleEntryHeader.Bicycle.BrandName,
-                                InspectedDate  = a.BicycleEntryHeader.CreatedAt,
+
+
+                                a.BicycleEntryHeaders.Bicycles.NameOwner,
+                                a.BicycleEntryHeaders.Bicycles.ContactNo,
+                                a.BicycleEntryHeaders.Bicycles.BrandName,
+                                InspectedDate = a.BicycleEntryHeaders.CreatedAt,
                                 ExpiryDate = "",
-                                a.BicycleEntryHeader.Bicycle.IdentificationNo,
+                                a.BicycleEntryHeaders.Bicycles.IdentificationNo,
 
                                 a.FrameSafe,
                                 a.FrameUnSafe,
@@ -332,7 +523,7 @@ namespace SEMSystemApi.Controllers
                             })
                             .ToList();
 
-                  
+
                     DataTable dts = new DataTable();
                     dts = ToDataTable(v);
                     ReportDataSource datasources = new ReportDataSource("Bicycle", dts);
@@ -342,7 +533,7 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptItemHistory")
                 {
-                    
+
 
                     var v =
                      db.LocationItemDetails
@@ -360,21 +551,21 @@ namespace SEMSystemApi.Controllers
                                                a.Equipment == "EL" ? db.LocationEmergencyLights.Where(b => b.Id == a.HeaderId).FirstOrDefault().AreaId :
                                                a.Equipment == "FH" ? db.LocationFireHydrants.Where(b => b.Id == a.HeaderId).FirstOrDefault().AreaId :
                                                db.LocationInergenTanks.Where(b => b.Id == a.HeaderId).FirstOrDefault().AreaId,
-                                Area= a.Equipment == "FE" ? db.LocationFireExtinguishers.Where(b => b.Id == a.HeaderId).FirstOrDefault().Area.Name :
-                                               a.Equipment == "EL" ? db.LocationEmergencyLights.Where(b => b.Id == a.HeaderId).FirstOrDefault().Area.Name :
-                                               a.Equipment == "FH" ? db.LocationFireHydrants.Where(b => b.Id == a.HeaderId).FirstOrDefault().Area.Name :
+                                Area = a.Equipment == "FE" ? db.LocationFireExtinguishers.Where(b => b.Id == a.HeaderId).FirstOrDefault().Areas.Name :
+                                               a.Equipment == "EL" ? db.LocationEmergencyLights.Where(b => b.Id == a.HeaderId).FirstOrDefault().Areas.Name :
+                                               a.Equipment == "FH" ? db.LocationFireHydrants.Where(b => b.Id == a.HeaderId).FirstOrDefault().Areas.Name :
                                                db.LocationInergenTanks.Where(b => b.Id == a.HeaderId).FirstOrDefault().Area,
-                                a.Item.EquipmentType,
-                                a.Item.SerialNo,
-                                Items = a.Item.Code + " - " + a.Item.Name,
+                                a.Items.EquipmentType,
+                                a.Items.SerialNo,
+                                Items = a.Items.Code + " - " + a.Items.Name,
                                 TransferredDate = a.CreatedDate,
-                                SafeKeepDate = a.Item.DatePurchased
+                                SafeKeepDate = a.Items.DatePurchased
                                     ,
                                 a.CreatedDate
                                     ,
                                 a.Status,
-                                FromDate = rptVM.fromDate ,
-                               ToDate = rptVM.toDate
+                                FromDate = rptVM.fromDate,
+                                ToDate = rptVM.toDate
 
                             })
                             .Where(a => a.AreaId == rptVM.ReferenceId)
@@ -390,51 +581,57 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptItemInventory")
                 {
-                    DateTime ? dt  = new DateTime(1, 1, 0001);
-                    var v = db.Items
-                             .GroupJoin(
-                                      db.LocationItemDetails // B
-                                      .Where(a => a.Status == "Active"),
-                                      i => i.Id, //A key
-                                      p => p.ItemId,//B key
-                                      (i, g) =>
-                                         new
-                                         {
-                                             i, //holds A data
-                                             g  //holds B data
-                                    }
-                                   )
-                                   .SelectMany(
-                                      temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                                      (A, B) =>
-                                         new
-                                         {
-                                             A.i.Code,
-                                             A.i.Name,  
-                                             A.i.SerialNo,
-                                             DatePurchased = A.i.DatePurchased == null ? dt : A.i.DatePurchased,
-                                             A.i.Warranty,
-                                             A.i.ItemStatus,
-                                             A.i.EquipmentType,
-                                             Location = A.i.EquipmentType == "Fire Extinguisher" ? db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                         A.i.EquipmentType == "Emergency Light" ? db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                         A.i.EquipmentType == "Fire Hydrant" ? db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                         A.i.EquipmentType == "Inergen Tank" ? db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().Area :
-                                                        "", 
-
-                                        
-
-                                         }
-                                   ).ToList();
-
-
-
-                   
+                    DateTime? dt = new DateTime(1, 1, 0001);
+                    var v =
+                      db.Items
+                      .GroupJoin(
+                                     db.LocationItemDetails // B
+                                     .Where(a => a.Status == "Active"),
+                                     i => i.Id, //A key
+                                     p => p.ItemId,//B key
+                                     (i, g) =>
+                                        new
+                                        {
+                                            i, //holds A data
+                                            g  //holds B data
+                                        }
+                                  )
+                                  .SelectMany(
+                                     temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                                     (A, B) =>
+                                        new
+                                        {
+                                            A.i.Code,
+                                            ItemName = A.i.Name,
+                                            A.i.SerialNo,
+                                            DatePurchased = A.i.DatePurchased == null ? dt : A.i.DatePurchased,
+                                            A.i.Warranty,
+                                            A.i.ItemStatus,
+                                            A.i.EquipmentType,
+                                            Location = A.i.EquipmentType == "Fire Extinguisher" ? db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
+                                                        A.i.EquipmentType == "Emergency Light" ? db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
+                                                        A.i.EquipmentType == "Fire Hydrant" ? db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
+                                                        A.i.EquipmentType == "Inergen Tank" ? db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().Area :
+                                                       "",
+                                            Area = A.i.EquipmentType == "Fire Extinguisher" ? db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
+                                                        A.i.EquipmentType == "Emergency Light" ? db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
+                                                        A.i.EquipmentType == "Fire Hydrant" ? db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
+                                                        A.i.EquipmentType == "Inergen Tank" ? db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
+                                                       0
 
 
 
+                                        }
+                                  ).Where(a => a.Area == rptVM.ReferenceId).ToList();
 
-                 
+
+
+
+
+
+
+
+
 
                     DataTable dts = new DataTable();
                     dts = ToDataTable(v);
@@ -448,10 +645,10 @@ namespace SEMSystemApi.Controllers
                     return null;
                 }
 
-                    
-                
-                    
-                
+
+
+
+
 
             }
             catch (Exception e)
@@ -463,7 +660,7 @@ namespace SEMSystemApi.Controllers
 
         }
 
-       
+
         public DataTable ToDataTable<T>(List<T> items)
         {
             DataTable dataTable = new DataTable(typeof(T).Name);

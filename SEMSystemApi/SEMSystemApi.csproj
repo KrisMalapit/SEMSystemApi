@@ -180,80 +180,80 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Area.cs">
+    <Compile Include="Models\Areas.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bicycle.cs">
+    <Compile Include="Models\BicycleEntryDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BicycleEntryDetail.cs">
+    <Compile Include="Models\BicycleEntryHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BicycleEntryHeader.cs">
+    <Compile Include="Models\Bicycles.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Company.cs">
+    <Compile Include="Models\Companies.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__EFMigrationsHistory.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Department.cs">
+    <Compile Include="Models\Departments.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmergencyLightDetail.cs">
+    <Compile Include="Models\EmergencyLightDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EmergencyLightHeader.cs">
+    <Compile Include="Models\EmergencyLightHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FireExtinguisherDetail.cs">
+    <Compile Include="Models\FireExtinguisherDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FireExtinguisherHeader.cs">
+    <Compile Include="Models\FireExtinguisherHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FireHydrantDetail.cs">
+    <Compile Include="Models\FireHydrantDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FireHydrantHeader.cs">
+    <Compile Include="Models\FireHydrantHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InergenTankDetail.cs">
+    <Compile Include="Models\InergenTankDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InergenTankHeader.cs">
+    <Compile Include="Models\InergenTankHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Item.cs">
+    <Compile Include="Models\ItemLogs.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ItemLog.cs">
+    <Compile Include="Models\Items.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocationEmergencyLight.cs">
+    <Compile Include="Models\LocationEmergencyLights.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocationFireExtinguisher.cs">
+    <Compile Include="Models\LocationFireExtinguishers.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocationFireHydrant.cs">
+    <Compile Include="Models\LocationFireHydrants.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocationInergenTank.cs">
+    <Compile Include="Models\LocationInergenTanks.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\LocationItemDetail.cs">
+    <Compile Include="Models\LocationItemDetails.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Log.cs">
+    <Compile Include="Models\Logs.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NoSery.cs">
+    <Compile Include="Models\NoSeries.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReportViewModel.cs" />
-    <Compile Include="Models\Role.cs">
+    <Compile Include="Models\Roles.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SEMDataSet.Designer.cs">
@@ -276,7 +276,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SEMModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs">
+    <Compile Include="Models\Users.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

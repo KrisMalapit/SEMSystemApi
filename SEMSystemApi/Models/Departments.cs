@@ -12,19 +12,25 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Departments
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Departments()
         {
-            this.Users = new HashSet<User>();
+            this.Bicycles = new HashSet<Bicycles>();
+            this.Users = new HashSet<Users>();
         }
     
-        public int Id { get; set; }
+        public int ID { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public string Status { get; set; }
+        public int CompanyId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Bicycles> Bicycles { get; set; }
+        public virtual Companies Companies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

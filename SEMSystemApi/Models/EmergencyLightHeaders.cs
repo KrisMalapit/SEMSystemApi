@@ -12,22 +12,23 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EmergencyLightDetail
+    public partial class EmergencyLightHeaders
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public EmergencyLightHeaders()
+        {
+            this.EmergencyLightDetails = new HashSet<EmergencyLightDetails>();
+        }
+    
         public int Id { get; set; }
         public int LocationEmergencyLightId { get; set; }
-        public int Battery { get; set; }
-        public int Bulb { get; set; }
-        public int Usable { get; set; }
-        public string Remarks { get; set; }
         public System.DateTime CreatedAt { get; set; }
-        public System.DateTime UpdatedAt { get; set; }
+        public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
-        public int EmergencyLightHeaderId { get; set; }
-        public string InspectedBy { get; set; }
-        public string NotedBy { get; set; }
-        public string ReviewedBy { get; set; }
+        public string Status { get; set; }
     
-        public virtual EmergencyLightHeader EmergencyLightHeader { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmergencyLightDetails> EmergencyLightDetails { get; set; }
+        public virtual LocationEmergencyLights LocationEmergencyLights { get; set; }
     }
 }

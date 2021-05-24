@@ -12,15 +12,12 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ItemLog
+    public partial class NoSeries
     {
         public int Id { get; set; }
-        public int ItemId { get; set; }
-        public string OldStatus { get; set; }
-        public string NewStatus { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-    
-        public virtual Item Item { get; set; }
+        public string Code { get; set; }
+        public string LastNoUsed { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public System.DateTime DateUpdated { get; set; }
     }
 }

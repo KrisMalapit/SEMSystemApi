@@ -12,22 +12,19 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Bicycle
+    public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bicycle()
+        public Roles()
         {
-            this.BicycleEntryHeaders = new HashSet<BicycleEntryHeader>();
+            this.Users = new HashSet<Users>();
         }
     
-        public int ID { get; set; }
-        public string NameOwner { get; set; }
-        public string ContactNo { get; set; }
-        public string BrandName { get; set; }
-        public string IdentificationNo { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BicycleEntryHeader> BicycleEntryHeaders { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

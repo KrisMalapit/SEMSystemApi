@@ -12,23 +12,23 @@ namespace SEMSystemApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class BicycleEntryHeader
+    public partial class FireHydrantHeaders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BicycleEntryHeader()
+        public FireHydrantHeaders()
         {
-            this.BicycleEntryDetails = new HashSet<BicycleEntryDetail>();
+            this.FireHydrantDetails = new HashSet<FireHydrantDetails>();
         }
     
         public int Id { get; set; }
-        public int BicycleId { get; set; }
+        public int LocationFireHydrantId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BicycleEntryDetail> BicycleEntryDetails { get; set; }
-        public virtual Bicycle Bicycle { get; set; }
+        public virtual ICollection<FireHydrantDetails> FireHydrantDetails { get; set; }
+        public virtual LocationFireHydrants LocationFireHydrants { get; set; }
     }
 }
