@@ -3528,6 +3528,10 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnEquipmentType;
             
+            private global::System.Data.DataColumn columnArea;
+            
+            private global::System.Data.DataColumn columnAreaId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ItemDataTable() {
@@ -3627,6 +3631,22 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AreaColumn {
+                get {
+                    return this.columnArea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AreaIdColumn {
+                get {
+                    return this.columnAreaId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3662,7 +3682,7 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ItemRow AddItemRow(string Code, string Name, string SerialNo, string DatePurchased, string ItemStatus, string Warranty, string Location, string EquipmentType) {
+            public ItemRow AddItemRow(string Code, string Name, string SerialNo, string DatePurchased, string ItemStatus, string Warranty, string Location, string EquipmentType, string Area, string AreaId) {
                 ItemRow rowItemRow = ((ItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Code,
@@ -3672,7 +3692,9 @@ namespace SEMSystemApi.Models {
                         ItemStatus,
                         Warranty,
                         Location,
-                        EquipmentType};
+                        EquipmentType,
+                        Area,
+                        AreaId};
                 rowItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowItemRow);
                 return rowItemRow;
@@ -3703,6 +3725,8 @@ namespace SEMSystemApi.Models {
                 this.columnWarranty = base.Columns["Warranty"];
                 this.columnLocation = base.Columns["Location"];
                 this.columnEquipmentType = base.Columns["EquipmentType"];
+                this.columnArea = base.Columns["Area"];
+                this.columnAreaId = base.Columns["AreaId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3724,6 +3748,10 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnLocation);
                 this.columnEquipmentType = new global::System.Data.DataColumn("EquipmentType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEquipmentType);
+                this.columnArea = new global::System.Data.DataColumn("Area", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea);
+                this.columnAreaId = new global::System.Data.DataColumn("AreaId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAreaId);
                 this.ExtendedProperties.Add("Generator_RowClassName", "ItemRow");
                 this.ExtendedProperties.Add("Generator_RowEvArgName", "ItemRowChangeEvent");
                 this.ExtendedProperties.Add("Generator_RowEvHandlerName", "ItemRowChangeEventHandler");
@@ -7115,6 +7143,38 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Area {
+                get {
+                    try {
+                        return ((string)(this[this.tableItem.AreaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Area\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.AreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string AreaId {
+                get {
+                    try {
+                        return ((string)(this[this.tableItem.AreaIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AreaId\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.AreaIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsCodeNull() {
                 return this.IsNull(this.tableItem.CodeColumn);
             }
@@ -7207,6 +7267,30 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEquipmentTypeNull() {
                 this[this.tableItem.EquipmentTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAreaNull() {
+                return this.IsNull(this.tableItem.AreaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAreaNull() {
+                this[this.tableItem.AreaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAreaIdNull() {
+                return this.IsNull(this.tableItem.AreaIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAreaIdNull() {
+                this[this.tableItem.AreaIdColumn] = global::System.Convert.DBNull;
             }
         }
         

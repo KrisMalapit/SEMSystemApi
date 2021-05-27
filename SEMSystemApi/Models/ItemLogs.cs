@@ -22,7 +22,5 @@ namespace SEMSystemApi.Models
         public string CreatedBy { get; set; }
         public string Description { get; set; }
         public string Module { get; set; }
-    
-        public virtual Items Items { get; set; }
     }
 }

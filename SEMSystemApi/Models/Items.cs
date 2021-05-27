@@ -21,7 +21,6 @@ namespace SEMSystemApi.Models
             this.FireExtinguisherDetails = new HashSet<FireExtinguisherDetails>();
             this.FireHydrantDetails = new HashSet<FireHydrantDetails>();
             this.InergenTankDetails = new HashSet<InergenTankDetails>();
-            this.ItemLogs = new HashSet<ItemLogs>();
             this.LocationItemDetails = new HashSet<LocationItemDetails>();
         }
     
@@ -34,6 +33,7 @@ namespace SEMSystemApi.Models
         public string Status { get; set; }
         public string Code { get; set; }
         public string EquipmentType { get; set; }
+        public int IsIn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmergencyLightDetails> EmergencyLightDetails { get; set; }
@@ -43,8 +43,6 @@ namespace SEMSystemApi.Models
         public virtual ICollection<FireHydrantDetails> FireHydrantDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InergenTankDetails> InergenTankDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemLogs> ItemLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LocationItemDetails> LocationItemDetails { get; set; }
     }

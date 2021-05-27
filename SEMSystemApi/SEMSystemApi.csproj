@@ -67,6 +67,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.9.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.2.9\lib\net45\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -225,6 +228,7 @@
     <Compile Include="Models\InergenTankHeaders.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InventoryViewModel.cs" />
     <Compile Include="Models\ItemLogs.cs">
       <DependentUpon>SEMModel.tt</DependentUpon>
     </Compile>

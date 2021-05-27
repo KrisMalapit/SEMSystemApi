@@ -248,6 +248,7 @@
           <Property Name="Status" Type="nvarchar(max)" />
           <Property Name="Code" Type="nvarchar(max)" />
           <Property Name="EquipmentType" Type="nvarchar(max)" />
+          <Property Name="IsIn" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="LocationEmergencyLights">
           <Key>
@@ -590,20 +591,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ItemLogs_Items_ItemId">
-          <End Role="Items" Type="Self.Items" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ItemLogs" Type="Self.ItemLogs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemLogs">
-              <PropertyRef Name="ItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LocationEmergencyLights_Areas_AreaId">
           <End Role="Areas" Type="Self.Areas" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -796,10 +783,6 @@
           <AssociationSet Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
             <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
             <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemLogs_Items_ItemId" Association="Self.FK_ItemLogs_Items_ItemId">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="ItemLogs" EntitySet="ItemLogs" />
           </AssociationSet>
           <AssociationSet Name="FK_LocationEmergencyLights_Areas_AreaId" Association="Self.FK_LocationEmergencyLights_Areas_AreaId">
             <End Role="Areas" EntitySet="Areas" />
@@ -1095,7 +1078,6 @@
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Module" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Items" Relationship="Self.FK_ItemLogs_Items_ItemId" FromRole="ItemLogs" ToRole="Items" />
         </EntityType>
         <EntityType Name="Items">
           <Key>
@@ -1110,11 +1092,11 @@
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EquipmentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsIn" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmergencyLightDetails" Relationship="Self.FK_EmergencyLightDetails_Items_ItemId" FromRole="Items" ToRole="EmergencyLightDetails" />
           <NavigationProperty Name="FireExtinguisherDetails" Relationship="Self.FK_FireExtinguisherDetails_Items_ItemId" FromRole="Items" ToRole="FireExtinguisherDetails" />
           <NavigationProperty Name="FireHydrantDetails" Relationship="Self.FK_FireHydrantDetails_Items_ItemId" FromRole="Items" ToRole="FireHydrantDetails" />
           <NavigationProperty Name="InergenTankDetails" Relationship="Self.FK_InergenTankDetails_Items_ItemId" FromRole="Items" ToRole="InergenTankDetails" />
-          <NavigationProperty Name="ItemLogs" Relationship="Self.FK_ItemLogs_Items_ItemId" FromRole="Items" ToRole="ItemLogs" />
           <NavigationProperty Name="LocationItemDetails" Relationship="Self.FK_LocationItemDetails_Items_ItemId" FromRole="Items" ToRole="LocationItemDetails" />
         </EntityType>
         <EntityType Name="LocationEmergencyLights">
@@ -1540,20 +1522,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ItemLogs_Items_ItemId">
-          <End Role="Items" Type="Self.Items" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ItemLogs" Type="Self.ItemLogs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Items">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ItemLogs">
-              <PropertyRef Name="ItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LocationItemDetails_Items_ItemId">
           <End Role="Items" Type="Self.Items" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1696,10 +1664,6 @@
           <AssociationSet Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
             <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
             <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ItemLogs_Items_ItemId" Association="Self.FK_ItemLogs_Items_ItemId">
-            <End Role="Items" EntitySet="Items" />
-            <End Role="ItemLogs" EntitySet="ItemLogs" />
           </AssociationSet>
           <AssociationSet Name="FK_LocationItemDetails_Items_ItemId" Association="Self.FK_LocationItemDetails_Items_ItemId">
             <End Role="Items" EntitySet="Items" />
@@ -1974,6 +1938,7 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="EquipmentType" ColumnName="EquipmentType" />
+                <ScalarProperty Name="IsIn" ColumnName="IsIn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

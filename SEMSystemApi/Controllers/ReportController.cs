@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Reflection;
 using System.Web.Http;
 using Microsoft.Reporting.WebForms;
@@ -11,7 +12,8 @@ using SEMSystemApi.Models;
 
 namespace SEMSystemApi.Controllers
 {
-    //Kris
+
+    //this is from homes
     public class ReportController : ApiController
     {
 
@@ -582,57 +584,273 @@ namespace SEMSystemApi.Controllers
                 }
                 else if (rptVM.Report == "rptItemInventory")
                 {
+                    
+
+
+                    string strFilter = "";
+                    int AreaId = rptVM.ReferenceId;
                     DateTime? dt = new DateTime(1, 1, 0001);
-                    var v =
-                      db.Items
-                      .GroupJoin(
-                                     db.LocationItemDetails // B
-                                     .Where(a => a.Status == "Active"),
-                                     i => i.Id, //A key
-                                     p => p.ItemId,//B key
-                                     (i, g) =>
-                                        new
-                                        {
-                                            i, //holds A data
-                                            g  //holds B data
-                                        }
-                                  )
-                                  .SelectMany(
-                                     temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                                     (A, B) =>
-                                        new
-                                        {
-                                            A.i.Code,
-                                            ItemName = A.i.Name,
-                                            A.i.SerialNo,
-                                            DatePurchased = A.i.DatePurchased == null ? dt : A.i.DatePurchased,
-                                            A.i.Warranty,
-                                            A.i.ItemStatus,
-                                            A.i.EquipmentType,
-                                            Location = A.i.EquipmentType == "Fire Extinguisher" ? db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                        A.i.EquipmentType == "Emergency Light" ? db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                        A.i.EquipmentType == "Fire Hydrant" ? db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().Location :
-                                                        A.i.EquipmentType == "Inergen Tank" ? db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().Area :
-                                                       "",
-                                            Area = A.i.EquipmentType == "Fire Extinguisher" ? db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationFireExtinguishers.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
-                                                        A.i.EquipmentType == "Emergency Light" ? db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationEmergencyLights.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
-                                                        A.i.EquipmentType == "Fire Hydrant" ? db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationFireHydrants.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
-                                                        A.i.EquipmentType == "Inergen Tank" ? db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId == null ? 0 : db.LocationInergenTanks.Where(b => b.Id == B.HeaderId).FirstOrDefault().AreaId :
-                                                       0
+
+                    //FireExtinguishers Items
+                    var lst = new List<InventoryViewModel>();
+
+                    if (AreaId == -1)
+                    {
+                        strFilter = "AreaId <> " + AreaId;
+                    }
+                    else if (AreaId == 0) //SAFEKEEP
+                    {
+                        strFilter = "AreaId = " + AreaId;
+                    }
+                    else
+                    {
+                        strFilter = "AreaId=" + AreaId;
+                    }
+
+                    var safeItems = db.Items.Where(a => a.Status == "Active")
+                        .Where(a => a.IsIn == 1)
+                        .Select(a => new
+                        {
+                            a.Code,
+                            ItemName = a.Name,
+                            a.SerialNo,
+                            DatePurchased = a.DatePurchased == null ? dt : a.DatePurchased,
+                            a.ItemStatus,
+                            a.EquipmentType,
+                            Location = "Safekeep",
+                            Area = "Safekeep",
+                            a.Warranty
+
+                        });
+
+
+                    var feItems = db.LocationFireExtinguishers.Where(a => a.Status == "Active")
+                        .Where(strFilter)
+                        .GroupJoin(
+                                db.LocationItemDetails // B
+                                .Where(a => a.Status == "Active")
+                                .Where(a => a.Equipment == "FE"),
+                                i => i.Id, //A key
+                                p => p.HeaderId,//B key
+                                (i, g) =>
+                                    new
+                                    {
+                                        i, //holds A data
+                                        g  //holds B data
+                                    }
+                        ).SelectMany(
+                                temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                                (A, B) =>
+                                    new
+                                    {
+                                        B.Items.Code,
+                                        ItemName = B.Items.Name,
+                                        B.Items.SerialNo,
+                                        DatePurchased = B.Items.DatePurchased == null ? dt : B.Items.DatePurchased,
+                                        B.Items.ItemStatus,
+                                        B.Items.EquipmentType,
+                                        A.i.Location,
+                                        Area = A.i.Areas.Name,
+                                        B.Items.Warranty
+                                    }
+                            );
+
+                    //Emergency Lights Items
+                    var elItems = db.LocationEmergencyLights.Where(a => a.Status == "Active")
+                        .Where(strFilter)
+                        .GroupJoin(
+                                db.LocationItemDetails // B
+                                .Where(a => a.Status == "Active")
+                                .Where(a => a.Equipment == "EL"),
+                                i => i.Id, //A key
+                                p => p.HeaderId,//B key
+                                (i, g) =>
+                                    new
+                                    {
+                                        i, //holds A data
+                                        g  //holds B data
+                                    }
+                        ).SelectMany(
+                                temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                                (A, B) =>
+                                    new
+                                    {
+                                        B.Items.Code,
+                                        ItemName = B.Items.Name,
+                                        B.Items.SerialNo,
+                                        DatePurchased = B.Items.DatePurchased == null ? dt : B.Items.DatePurchased,
+                                        B.Items.ItemStatus,
+                                        B.Items.EquipmentType,
+                                        A.i.Location,
+                                        Area = A.i.Areas.Name,
+                                        B.Items.Warranty
+                                    }
+                            );
+
+                    //Fire Hydrant Items
+                    var fhItems = db.LocationFireHydrants.Where(a => a.Status == "Active")
+                       .Where(strFilter)
+                        .GroupJoin(
+                                db.LocationItemDetails // B
+                                .Where(a => a.Status == "Active")
+                                .Where(a => a.Equipment == "FH"),
+                                i => i.Id, //A key
+                                p => p.HeaderId,//B key
+                                (i, g) =>
+                                    new
+                                    {
+                                        i, //holds A data
+                                        g  //holds B data
+                                    }
+                        ).SelectMany(
+                                temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                                (A, B) =>
+                                    new
+                                    {
+                                        B.Items.Code,
+                                        ItemName = B.Items.Name,
+                                        B.Items.SerialNo,
+                                        DatePurchased = B.Items.DatePurchased == null ? dt : B.Items.DatePurchased,
+                                        B.Items.ItemStatus,
+                                        B.Items.EquipmentType,
+                                        A.i.Location,
+                                        Area = A.i.Areas.Name,
+                                        B.Items.Warranty
+                                    }
+                            );
+
+                    //Inergen Tank Items
+                    var itItems = db.LocationInergenTanks.Where(a => a.Status == "Active")
+                        .Where(strFilter)
+                        .GroupJoin(
+                                db.LocationItemDetails // B
+                                .Where(a => a.Status == "Active")
+                                .Where(a => a.Equipment == "IT"),
+                                i => i.Id, //A key
+                                p => p.HeaderId,//B key
+                                (i, g) =>
+                                    new
+                                    {
+                                        i, //holds A data
+                                        g  //holds B data
+                                    }
+                        ).SelectMany(
+                                temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
+                                (A, B) =>
+                                    new
+                                    {
+                                        B.Items.Code,
+                                        ItemName = B.Items.Name,
+                                        B.Items.SerialNo,
+                                        DatePurchased = B.Items.DatePurchased == null ? dt : B.Items.DatePurchased,
+                                        B.Items.ItemStatus,
+                                        B.Items.EquipmentType,
+                                        Location = A.i.Area,
+                                        Area = A.i.Areas.Name,
+                                        B.Items.Warranty
+                                    }
+                            );
+                    foreach (var item in feItems)
+                    {
+                        var inventory = new InventoryViewModel()
+                        {
+
+                            Code = item.Code,
+                            ItemName = item.ItemName,
+                            SerialNo = item.SerialNo,
+                            DatePurchased = item.DatePurchased,
+                            ItemStatus = item.ItemStatus,
+                            EquipmentType = item.EquipmentType,
+                            Location = item.Location,
+                            Area = item.Area,
+                            Warranty = item.Warranty,
+                            AreaId = AreaId
+                        };
+                        lst.Add(inventory);
+                    }
+
+                    foreach (var item in elItems)
+                    {
+                        var inventory = new InventoryViewModel()
+                        {
+
+                            Code = item.Code,
+                            ItemName = item.ItemName,
+                            SerialNo = item.SerialNo,
+                            DatePurchased = item.DatePurchased,
+                            ItemStatus = item.ItemStatus,
+                            EquipmentType = item.EquipmentType,
+                            Location = item.Location,
+                            Area = item.Area,
+                            Warranty = item.Warranty,
+                            AreaId = AreaId
+                        };
+                        lst.Add(inventory);
+                    }
+                    foreach (var item in fhItems)
+                    {
+                        var inventory = new InventoryViewModel()
+                        {
+
+                            Code = item.Code,
+                            ItemName = item.ItemName,
+                            SerialNo = item.SerialNo,
+                            DatePurchased = item.DatePurchased,
+                            ItemStatus = item.ItemStatus,
+                            EquipmentType = item.EquipmentType,
+                            Location = item.Location,
+                            Area = item.Area,
+                            Warranty = item.Warranty,
+                            AreaId = AreaId
+                        };
+                        lst.Add(inventory);
+                    }
+                    foreach (var item in itItems)
+                    {
+                        var inventory = new InventoryViewModel()
+                        {
+
+                            Code = item.Code,
+                            ItemName = item.ItemName,
+                            SerialNo = item.SerialNo,
+                            DatePurchased = item.DatePurchased,
+                            ItemStatus = item.ItemStatus,
+                            EquipmentType = item.EquipmentType,
+                            Location = item.Location,
+                            Area = item.Area,
+                            Warranty = item.Warranty,
+                            AreaId = AreaId
+                        };
+                        lst.Add(inventory);
+                    }
+                    if (AreaId <= 0)
+                    {
+                        foreach (var item in safeItems)
+                        {
+                            var inventory = new InventoryViewModel()
+                            {
+
+                                Code = item.Code,
+                                ItemName = item.ItemName,
+                                SerialNo = item.SerialNo,
+                                DatePurchased = item.DatePurchased,
+                                ItemStatus = item.ItemStatus,
+                                EquipmentType = item.EquipmentType,
+                                Location = item.Location,
+                                Area = item.Area,
+                                Warranty = item.Warranty,
+                                AreaId = AreaId
+
+                            };
+                            lst.Add(inventory);
+                        }
+                    }
 
 
 
-                                        }
-                                  ).Where(a => a.Area == rptVM.ReferenceId).ToList();
 
 
-
-
-
-
-
-
-
+                    var v = lst.Where(a => a.ItemName != null).ToList();
 
                     DataTable dts = new DataTable();
                     dts = ToDataTable(v);
