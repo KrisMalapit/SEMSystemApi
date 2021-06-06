@@ -63,6 +63,7 @@ namespace SEMSystemApi.Controllers
 
                 if (rptVM.fromDate != def)
                 {
+                    int i = 0;
                     //filter = "CreatedAt "
                 }
 
