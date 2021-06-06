@@ -58,54 +58,21 @@ namespace SEMSystemApi.Controllers
                     ReportPath = baseDir + "\\Reports\\" + report + ".rdlc"
                 };
                 DateTime def = new DateTime(1, 1, 1);
+
+                string filter = "";
+
+                if (rptVM.fromDate != def)
+                {
+                    //filter = "CreatedAt "
+                }
+
+
                 if (rptVM.Report == "rptFireExtinguisher")
                 {
-                    //var v = db.FireExtinguisherDetails
-                    //    .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId) //A
-                    //  .GroupJoin(
-                    //     db.LocationFireExtinguishers // B
-                    //     .Where(a => a.Status == "Active"),
-                    //     i => i.LocationFireExtinguisherId, //A key
-                    //     p => p.Id,//B key
-                    //     (i, g) =>
-                    //        new
-                    //        {
-                    //            i, //holds A data
-                    //            g  //holds B data
-                    //        }
-                    //  )
-                    //  .SelectMany(
-                    //     temp => temp.g.Take(1).DefaultIfEmpty(), //gets data and transfer to B
-                    //     (A, B) =>
-                    //        new
-                    //        {
-
-                    //            Id = A.i.LocationFireExtinguisherId,
-                    //            Plant = B.Area.Company.Name,
-                    //            B.Area.CompanyId,
-                    //            Area = B.Area.Name,
-                    //            B.Location,
-                    //            A.i.CreatedAt,
-                    //            B.Code,
-                    //            B.Type,
-                    //            B.Capacity,
-                    //            A.i.Cylinder,
-                    //            A.i.Lever,
-                    //            A.i.Gauge,
-                    //            A.i.SafetySeal,
-                    //            A.i.Hose,
-                    //            A.i.Remarks,
-                    //            A.i.InspectedBy,
-                    //            A.i.ReviewedBy,
-                    //            A.i.NotedBy
-
-                    //        }
-                    //  );
-
 
                     var v = db.FireExtinguisherDetails
                     .Where(a => a.FireExtinguisherHeaders.Status == "Active")
-                     .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId)//A
+                    .Where(a => a.FireExtinguisherHeaderId == rptVM.ReferenceId)//A
                     .GroupJoin(
                             db.LocationFireExtinguishers // B
                             .Where(a => a.Status == "Active"),
@@ -123,7 +90,7 @@ namespace SEMSystemApi.Controllers
                             (A, B) =>
                                  new
                                  {
-
+                                     A.i.FireExtinguisherHeaders.CreatedAt,
                                      id = A.i.ItemId,
                                      ItemName = A.i.Items.Name,
                                      A.i.Cylinder,
@@ -154,10 +121,7 @@ namespace SEMSystemApi.Controllers
 
 
 
-                    //if (rptVM.fromDate != def)
-                    //{
-                    //    v = v.Where(a => a.CreatedAt >= rptVM.fromDate && a.CreatedAt <= rptVM.toDate);
-                    //}
+                   
                     var lsts = v.OrderBy(a => a.ItemName).ToList();
                     DataTable dts = new DataTable();
                     dts = ToDataTable(lsts);
