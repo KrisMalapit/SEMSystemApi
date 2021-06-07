@@ -350,7 +350,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -403,11 +405,17 @@
   <ItemGroup>
     <EmbeddedResource Include="Reports\rptBicycle.rdlc" />
     <EmbeddedResource Include="Reports\rptEmergencyLight.rdlc" />
+    <EmbeddedResource Include="Reports\rptEmergencyLight_Consolidated.rdlc" />
+    <EmbeddedResource Include="Reports\rptFireExtinguisher.rdlc" />
+    <EmbeddedResource Include="Reports\rptFireExtinguisher_Consolidated.rdlc" />
     <EmbeddedResource Include="Reports\rptFireHydrant.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\rptFireExtinguisher.rdlc" />
+    <EmbeddedResource Include="Reports\rptFireHydrant_Consolidated.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptInergenTank.rdlc" />
+    <EmbeddedResource Include="Reports\rptInergenTank_Consolidated.rdlc" />
     <EmbeddedResource Include="Reports\rptItemHistory.rdlc" />
     <EmbeddedResource Include="Reports\rptItemInventory.rdlc" />
   </ItemGroup>

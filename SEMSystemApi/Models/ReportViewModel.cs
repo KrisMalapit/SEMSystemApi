@@ -15,6 +15,7 @@ namespace SEMSystemApi.Models
         public string Report { get; set; }
         public string rptType { get; set; }
         public int ReferenceId { get; set; }
+        public int Equipment { get; set; }
     }
     public class SMSArray
     {
