@@ -21,14 +21,17 @@ namespace SEMSystemApi.Models
         }
     
         public int Id { get; set; }
-        public int LocationFireHydrantId { get; set; }
+        public int AreaId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
+        public string ReferenceNo { get; set; }
+        public string DocumentStatus { get; set; }
+        public System.DateTime ApprovedDate { get; set; }
+        public System.DateTime ReviewedDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FireHydrantDetails> FireHydrantDetails { get; set; }
-        public virtual LocationFireHydrants LocationFireHydrants { get; set; }
     }
 }

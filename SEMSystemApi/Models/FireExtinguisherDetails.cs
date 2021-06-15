@@ -29,8 +29,11 @@ namespace SEMSystemApi.Models
         public string InspectedBy { get; set; }
         public string NotedBy { get; set; }
         public string ReviewedBy { get; set; }
+        public string ImageUrl { get; set; }
+        public int LocationFireExtinguisherId { get; set; }
     
         public virtual FireExtinguisherHeaders FireExtinguisherHeaders { get; set; }
         public virtual Items Items { get; set; }
+        public virtual LocationFireExtinguishers LocationFireExtinguishers { get; set; }
     }
 }

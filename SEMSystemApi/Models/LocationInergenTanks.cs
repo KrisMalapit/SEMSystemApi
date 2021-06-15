@@ -17,18 +17,17 @@ namespace SEMSystemApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LocationInergenTanks()
         {
-            this.InergenTankHeaders = new HashSet<InergenTankHeaders>();
+            this.InergenTankDetails = new HashSet<InergenTankDetails>();
         }
     
         public int Id { get; set; }
-        public string Capacity { get; set; }
-        public string Serial { get; set; }
+        public string Location { get; set; }
         public string Area { get; set; }
         public int AreaId { get; set; }
         public string Status { get; set; }
     
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InergenTankHeaders> InergenTankHeaders { get; set; }
+        public virtual ICollection<InergenTankDetails> InergenTankDetails { get; set; }
     }
 }

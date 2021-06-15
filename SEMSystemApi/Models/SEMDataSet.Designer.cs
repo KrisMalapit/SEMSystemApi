@@ -525,6 +525,10 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnLocation;
             
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public FireExtinguisherDataTable() {
@@ -704,6 +708,22 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -757,7 +777,9 @@ namespace SEMSystemApi.Models {
                         string InspectedBy, 
                         string ReviewedBy, 
                         string NotedBy, 
-                        string Location) {
+                        string Location, 
+                        string FromDate, 
+                        string ToDate) {
                 FireExtinguisherRow rowFireExtinguisherRow = ((FireExtinguisherRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Plant,
@@ -777,7 +799,9 @@ namespace SEMSystemApi.Models {
                         InspectedBy,
                         ReviewedBy,
                         NotedBy,
-                        Location};
+                        Location,
+                        FromDate,
+                        ToDate};
                 rowFireExtinguisherRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFireExtinguisherRow);
                 return rowFireExtinguisherRow;
@@ -818,6 +842,8 @@ namespace SEMSystemApi.Models {
                 this.columnReviewedBy = base.Columns["ReviewedBy"];
                 this.columnNotedBy = base.Columns["NotedBy"];
                 this.columnLocation = base.Columns["Location"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -859,6 +885,10 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnNotedBy);
                 this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLocation);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4189,6 +4219,38 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string FromDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableFireExtinguisher.FromDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromDate\' in table \'FireExtinguisher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFireExtinguisher.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ToDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableFireExtinguisher.ToDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToDate\' in table \'FireExtinguisher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFireExtinguisher.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPlantNull() {
                 return this.IsNull(this.tableFireExtinguisher.PlantColumn);
             }
@@ -4401,6 +4463,30 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLocationNull() {
                 this[this.tableFireExtinguisher.LocationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFromDateNull() {
+                return this.IsNull(this.tableFireExtinguisher.FromDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFromDateNull() {
+                this[this.tableFireExtinguisher.FromDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsToDateNull() {
+                return this.IsNull(this.tableFireExtinguisher.ToDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetToDateNull() {
+                this[this.tableFireExtinguisher.ToDateColumn] = global::System.Convert.DBNull;
             }
         }
         

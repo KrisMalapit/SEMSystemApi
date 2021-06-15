@@ -27,8 +27,11 @@ namespace SEMSystemApi.Models
         public string InspectedBy { get; set; }
         public string NotedBy { get; set; }
         public string ReviewedBy { get; set; }
+        public string ImageUrl { get; set; }
+        public int LocationEmergencyLightId { get; set; }
     
         public virtual EmergencyLightHeaders EmergencyLightHeaders { get; set; }
         public virtual Items Items { get; set; }
+        public virtual LocationEmergencyLights LocationEmergencyLights { get; set; }
     }
 }

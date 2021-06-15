@@ -17,7 +17,7 @@ namespace SEMSystemApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LocationFireHydrants()
         {
-            this.FireHydrantHeaders = new HashSet<FireHydrantHeaders>();
+            this.FireHydrantDetails = new HashSet<FireHydrantDetails>();
         }
     
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace SEMSystemApi.Models
     
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FireHydrantHeaders> FireHydrantHeaders { get; set; }
+        public virtual ICollection<FireHydrantDetails> FireHydrantDetails { get; set; }
     }
 }

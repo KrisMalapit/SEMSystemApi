@@ -4,33 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="51a0d534cbc54ed9bce370cde2dbbfa9" Name="Diagram1">
-        <EntityTypeShape EntityType="SEMModel.C__EFMigrationsHistory" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Areas" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.BicycleEntryDetails" Width="1.5" PointX="10.5" PointY="23.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.BicycleEntryHeaders" Width="1.5" PointX="8.25" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Bicycles" Width="1.5" PointX="6" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Companies" Width="1.5" PointX="1.5" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Departments" Width="1.5" PointX="3.75" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.EmergencyLightDetails" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.EmergencyLightHeaders" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.FireExtinguisherDetails" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.FireExtinguisherHeaders" Width="1.5" PointX="3.75" PointY="40" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.FireHydrantDetails" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.FireHydrantHeaders" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.InergenTankDetails" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.InergenTankHeaders" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.ItemLogs" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Items" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.LocationEmergencyLights" Width="1.5" PointX="1.5" PointY="36.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.LocationFireExtinguishers" Width="1.5" PointX="1.5" PointY="40" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.LocationFireHydrants" Width="1.5" PointX="1.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.LocationInergenTanks" Width="1.5" PointX="1.5" PointY="44" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.LocationItemDetails" Width="1.5" PointX="3" PointY="31.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Logs" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.NoSeries" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Roles" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEMModel.Users" Width="1.5" PointX="6" PointY="20.375" IsExpanded="true" />
+      <Diagram DiagramId="73478518477841c7866a64a02bfcd942" Name="Diagram1">
+        <EntityTypeShape EntityType="SEMModel.C__EFMigrationsHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Areas" Width="1.5" PointX="1.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.BicycleEntryDetails" Width="1.5" PointX="10.5" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.BicycleEntryHeaders" Width="1.5" PointX="8.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Bicycles" Width="1.5" PointX="6" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Companies" Width="1.5" PointX="1.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Departments" Width="1.5" PointX="3.75" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.EmergencyLightDetails" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.EmergencyLightHeaders" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireExtinguisherDetails" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireExtinguisherHeaders" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireHydrantDetails" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.FireHydrantHeaders" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.InergenTankDetails" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.InergenTankHeaders" Width="1.5" PointX="0.75" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.ItemLogs" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Items" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationEmergencyLights" Width="1.5" PointX="0.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationFireExtinguishers" Width="1.5" PointX="3.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationFireHydrants" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationInergenTanks" Width="1.5" PointX="0.75" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.LocationItemDetails" Width="1.5" PointX="3" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Logs" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.NoSeries" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Roles" Width="1.5" PointX="3.75" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEMModel.Users" Width="1.5" PointX="6" PointY="36.625" IsExpanded="true" />
         <AssociationConnector Association="SEMModel.FK_Areas_Companies_CompanyId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_LocationEmergencyLights_Areas_AreaId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_LocationFireExtinguishers_Areas_AreaId" ManuallyRouted="false" />
@@ -43,16 +43,16 @@
         <AssociationConnector Association="SEMModel.FK_Users_Departments_DepartmentId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_EmergencyLightDetails_Items_ItemId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEMModel.FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_FireExtinguisherDetails_Items_ItemId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEMModel.FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_FireHydrantDetails_Items_ItemId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEMModel.FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_InergenTankDetails_Items_ItemId" ManuallyRouted="false" />
-        <AssociationConnector Association="SEMModel.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" ManuallyRouted="false" />
+        <AssociationConnector Association="SEMModel.FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_LocationItemDetails_Items_ItemId" ManuallyRouted="false" />
         <AssociationConnector Association="SEMModel.FK_Users_Roles_RoleId" ManuallyRouted="false" />
       </Diagram>
