@@ -90,7 +90,7 @@ namespace SEMSystemApi.Controllers
                                 db.LocationFireExtinguishers // B
                                 .Where(a => a.Status == "Active")
                                 ,
-                                i => i.FireExtinguisherHeaders.LocationFireExtinguisherId, //A key
+                                i => i.LocationFireExtinguisherId, //A key
                                 p => p.Id,//B key
                                 (i, g) =>
                                     new
@@ -114,8 +114,8 @@ namespace SEMSystemApi.Controllers
                                          A.i.Hose,
                                          A.i.Remarks,
                                          A.i.Items.Code,
-                                         B.Type,
-                                         B.Capacity,
+                                         A.i.Items.Type,
+                                         A.i.Items.Capacity,
                                          A.i.InspectedBy,
                                          A.i.ReviewedBy,
                                          A.i.NotedBy,
@@ -125,7 +125,9 @@ namespace SEMSystemApi.Controllers
                                          Plant = B.Areas.Companies.Name,
                                          CompanyId = B.Areas.Companies.ID,
                                          Area = B.Areas.Name,
-                                         B.AreaId
+                                         B.AreaId,
+                                         FromDate = sdate,
+                                         ToDate = edate
 
 
                                      }
@@ -155,7 +157,7 @@ namespace SEMSystemApi.Controllers
                                 db.LocationEmergencyLights // B
                                 .Where(a => a.Status == "Active")
                                 ,
-                                i => i.EmergencyLightHeaders.LocationEmergencyLightId, //A key
+                                i => i.LocationEmergencyLightId, //A key
                                 p => p.Id,//B key
                                 (i, g) =>
                                     new
@@ -188,7 +190,9 @@ namespace SEMSystemApi.Controllers
                                          CompanyId = B.Areas.Companies.ID,
                                          Area = B.Areas.Name,
                                          A.i.CreatedAt,
-                                         B.AreaId
+                                         B.AreaId,
+                                         FromDate = sdate,
+                                         ToDate = edate
                                      }
                                 ).Where(_strFilter);
                        
@@ -209,7 +213,7 @@ namespace SEMSystemApi.Controllers
                                 db.LocationInergenTanks // B
                                 .Where(a => a.Status == "Active")
                                 ,
-                                i => i.InergenTankHeaders.LocationInergenTankId, //A key
+                                i => i.LocationInergenTankId, //A key
                                 p => p.Id,//B key
                                 (i, g) =>
                                     new
@@ -234,8 +238,8 @@ namespace SEMSystemApi.Controllers
                                          A.i.Hose,
                                          A.i.Remarks,
                                          Location = B.Area,
-                                         B.Serial,
-                                         B.Capacity,
+                                         Serial = A.i.Items.SerialNo,
+                                         A.i.Items.Capacity,
                                          A.i.InspectedBy,
                                          A.i.ReviewedBy,
                                          A.i.NotedBy,
@@ -246,7 +250,9 @@ namespace SEMSystemApi.Controllers
                                          CompanyId = B.Areas.Companies.ID,
                                          Area = B.Areas.Name,
                                          A.i.CreatedAt,
-                                         B.AreaId
+                                         B.AreaId,
+                                         FromDate = sdate,
+                                         ToDate = edate
 
                                      }
                                 ).Where(_strFilter);
@@ -271,7 +277,7 @@ namespace SEMSystemApi.Controllers
                                    db.LocationFireHydrants // B
                                    .Where(a => a.Status == "Active")
                                    ,
-                                   i => i.FireHydrantHeaders.LocationFireHydrantId, //A key
+                                   i => i.LocationFireHydrantId, //A key
                                    p => p.Id,//B key
                                    (i, g) =>
                                        new
@@ -307,7 +313,9 @@ namespace SEMSystemApi.Controllers
                                             CompanyId = B.Areas.Companies.ID,
                                             Area = B.Areas.Name,
                                             A.i.CreatedAt,
-                                            B.AreaId
+                                            B.AreaId,
+                                            FromDate = sdate,
+                                            ToDate = edate
 
                                         }
                                    ).Where(_strFilter);
@@ -393,7 +401,7 @@ namespace SEMSystemApi.Controllers
                     .GroupJoin(
                             db.LocationFireExtinguishers // B
                             .Where(a => a.Status == "Active"),
-                            i => i.FireExtinguisherHeaders.LocationFireExtinguisherId, //A key
+                            i => i.LocationFireExtinguisherId, //A key
                             p => p.Id,//B key
                             (i, g) =>
                                 new
@@ -417,8 +425,8 @@ namespace SEMSystemApi.Controllers
                                      A.i.Hose,
                                      A.i.Remarks,
                                      A.i.Items.Code,
-                                     B.Type,
-                                     B.Capacity,
+                                     A.i.Items.Type,
+                                     A.i.Items.Capacity,
                                      A.i.InspectedBy,
                                      A.i.ReviewedBy,
                                      A.i.NotedBy,
@@ -457,7 +465,7 @@ namespace SEMSystemApi.Controllers
                     .GroupJoin(
                             db.LocationEmergencyLights // B
                             .Where(a => a.Status == "Active"),
-                            i => i.EmergencyLightHeaders.LocationEmergencyLightId, //A key
+                            i => i.LocationEmergencyLightId, //A key
                             p => p.Id,//B key
                             (i, g) =>
                                 new
@@ -514,7 +522,7 @@ namespace SEMSystemApi.Controllers
                     .GroupJoin(
                             db.LocationInergenTanks // B
                             .Where(a => a.Status == "Active"),
-                            i => i.InergenTankHeaders.LocationInergenTankId, //A key
+                            i => i.LocationInergenTankId, //A key
                             p => p.Id,//B key
                             (i, g) =>
                                 new
@@ -539,8 +547,8 @@ namespace SEMSystemApi.Controllers
                                      A.i.Hose,
                                      A.i.Remarks,
                                      Location = B.Area,
-                                     B.Serial,
-                                     B.Capacity,
+                                     Serial = A.i.Items.SerialNo,
+                                     A.i.Items.Capacity,
                                      A.i.InspectedBy,
                                      A.i.ReviewedBy,
                                      A.i.NotedBy,
@@ -574,7 +582,7 @@ namespace SEMSystemApi.Controllers
                        .GroupJoin(
                                db.LocationFireHydrants // B
                                .Where(a => a.Status == "Active"),
-                               i => i.FireHydrantHeaders.LocationFireHydrantId, //A key
+                               i => i.LocationFireHydrantId, //A key
                                p => p.Id,//B key
                                (i, g) =>
                                    new

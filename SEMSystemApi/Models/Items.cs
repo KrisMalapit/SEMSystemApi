@@ -34,6 +34,8 @@ namespace SEMSystemApi.Models
         public string Code { get; set; }
         public string EquipmentType { get; set; }
         public int IsIn { get; set; }
+        public string Capacity { get; set; }
+        public string Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmergencyLightDetails> EmergencyLightDetails { get; set; }

@@ -44,6 +44,7 @@ namespace SEMSystemApi.Models
         public string NotedBy { get; set; }
         public string UpdatedBy { get; set; }
         public System.DateTime UpdatedAt { get; set; }
+        public string ImageUrl { get; set; }
     
         public virtual BicycleEntryHeaders BicycleEntryHeaders { get; set; }
     }

@@ -31,8 +31,11 @@ namespace SEMSystemApi.Models
         public string InspectedBy { get; set; }
         public string NotedBy { get; set; }
         public string ReviewedBy { get; set; }
+        public string ImageUrl { get; set; }
+        public int LocationFireHydrantId { get; set; }
     
         public virtual FireHydrantHeaders FireHydrantHeaders { get; set; }
         public virtual Items Items { get; set; }
+        public virtual LocationFireHydrants LocationFireHydrants { get; set; }
     }
 }

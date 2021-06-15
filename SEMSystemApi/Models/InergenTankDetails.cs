@@ -28,8 +28,11 @@ namespace SEMSystemApi.Models
         public string InspectedBy { get; set; }
         public string NotedBy { get; set; }
         public string ReviewedBy { get; set; }
+        public string ImageUrl { get; set; }
+        public int LocationInergenTankId { get; set; }
     
         public virtual InergenTankHeaders InergenTankHeaders { get; set; }
         public virtual Items Items { get; set; }
+        public virtual LocationInergenTanks LocationInergenTanks { get; set; }
     }
 }

@@ -26,6 +26,8 @@ namespace SEMSystemApi.Models
         public string CreatedBy { get; set; }
         public string UpdatedBy { get; set; }
         public string Status { get; set; }
+        public string ReferenceNo { get; set; }
+        public string DocumentStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BicycleEntryDetails> BicycleEntryDetails { get; set; }

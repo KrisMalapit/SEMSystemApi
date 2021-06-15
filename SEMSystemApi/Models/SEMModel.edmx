@@ -56,6 +56,7 @@
           <Property Name="NotedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BicycleEntryHeaders">
           <Key>
@@ -67,6 +68,8 @@
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="DocumentStatus" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Bicycles">
           <Key>
@@ -116,17 +119,23 @@
           <Property Name="InspectedBy" Type="nvarchar(max)" />
           <Property Name="NotedBy" Type="nvarchar(max)" />
           <Property Name="ReviewedBy" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="LocationEmergencyLightId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EmergencyLightHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocationEmergencyLightId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="DocumentStatus" Type="nvarchar(max)" />
+          <Property Name="ApprovedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ReviewedDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="FireExtinguisherDetails">
           <Key>
@@ -147,17 +156,23 @@
           <Property Name="InspectedBy" Type="nvarchar(max)" />
           <Property Name="NotedBy" Type="nvarchar(max)" />
           <Property Name="ReviewedBy" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="LocationFireExtinguisherId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="FireExtinguisherHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocationFireExtinguisherId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="DocumentStatus" Type="nvarchar(max)" />
+          <Property Name="ApprovedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ReviewedDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="FireHydrantDetails">
           <Key>
@@ -180,17 +195,23 @@
           <Property Name="InspectedBy" Type="nvarchar(max)" />
           <Property Name="NotedBy" Type="nvarchar(max)" />
           <Property Name="ReviewedBy" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="LocationFireHydrantId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="FireHydrantHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocationFireHydrantId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="DocumentStatus" Type="nvarchar(max)" />
+          <Property Name="ApprovedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ReviewedDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="InergenTankDetails">
           <Key>
@@ -210,17 +231,23 @@
           <Property Name="InspectedBy" Type="nvarchar(max)" />
           <Property Name="NotedBy" Type="nvarchar(max)" />
           <Property Name="ReviewedBy" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="LocationInergenTankId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="InergenTankHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LocationInergenTankId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
+          <Property Name="ReferenceNo" Type="nvarchar(max)" />
+          <Property Name="DocumentStatus" Type="nvarchar(max)" />
+          <Property Name="ApprovedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ReviewedDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="ItemLogs">
           <Key>
@@ -249,6 +276,8 @@
           <Property Name="Code" Type="nvarchar(max)" />
           <Property Name="EquipmentType" Type="nvarchar(max)" />
           <Property Name="IsIn" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="LocationEmergencyLights">
           <Key>
@@ -267,8 +296,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Location" Type="nvarchar(max)" />
           <Property Name="Code" Type="nvarchar" MaxLength="450" />
-          <Property Name="Type" Type="nvarchar(max)" />
-          <Property Name="Capacity" Type="nvarchar(max)" />
           <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="Status" Type="nvarchar" MaxLength="450" />
         </EntityType>
@@ -287,8 +314,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Capacity" Type="nvarchar(max)" />
-          <Property Name="Serial" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
           <Property Name="Area" Type="nvarchar(max)" />
           <Property Name="AreaId" Type="int" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" />
@@ -451,16 +477,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId">
+        <Association Name="FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId">
           <End Role="LocationEmergencyLights" Type="Self.LocationEmergencyLights" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeaders" Multiplicity="*" />
+          <End Role="EmergencyLightDetails" Type="Self.EmergencyLightDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationEmergencyLights">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="EmergencyLightHeaders">
+            <Dependent Role="EmergencyLightDetails">
               <PropertyRef Name="LocationEmergencyLightId" />
             </Dependent>
           </ReferentialConstraint>
@@ -493,16 +519,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId">
+        <Association Name="FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId">
           <End Role="LocationFireExtinguishers" Type="Self.LocationFireExtinguishers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeaders" Multiplicity="*" />
+          <End Role="FireExtinguisherDetails" Type="Self.FireExtinguisherDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationFireExtinguishers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FireExtinguisherHeaders">
+            <Dependent Role="FireExtinguisherDetails">
               <PropertyRef Name="LocationFireExtinguisherId" />
             </Dependent>
           </ReferentialConstraint>
@@ -535,16 +561,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId">
+        <Association Name="FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId">
           <End Role="LocationFireHydrants" Type="Self.LocationFireHydrants" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeaders" Multiplicity="*" />
+          <End Role="FireHydrantDetails" Type="Self.FireHydrantDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationFireHydrants">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FireHydrantHeaders">
+            <Dependent Role="FireHydrantDetails">
               <PropertyRef Name="LocationFireHydrantId" />
             </Dependent>
           </ReferentialConstraint>
@@ -577,16 +603,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
+        <Association Name="FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId">
           <End Role="LocationInergenTanks" Type="Self.LocationInergenTanks" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="InergenTankHeaders" Type="Self.InergenTankHeaders" Multiplicity="*" />
+          <End Role="InergenTankDetails" Type="Self.InergenTankDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationInergenTanks">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="InergenTankHeaders">
+            <Dependent Role="InergenTankDetails">
               <PropertyRef Name="LocationInergenTankId" />
             </Dependent>
           </ReferentialConstraint>
@@ -744,9 +770,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId" Association="Self.FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId">
+          <AssociationSet Name="FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId" Association="Self.FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId">
             <End Role="LocationEmergencyLights" EntitySet="LocationEmergencyLights" />
-            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+            <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" Association="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
             <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
@@ -756,9 +782,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId" Association="Self.FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId">
+          <AssociationSet Name="FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId" Association="Self.FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId">
             <End Role="LocationFireExtinguishers" EntitySet="LocationFireExtinguishers" />
-            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+            <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" Association="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
             <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
@@ -768,9 +794,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId" Association="Self.FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId">
+          <AssociationSet Name="FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId" Association="Self.FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId">
             <End Role="LocationFireHydrants" EntitySet="LocationFireHydrants" />
-            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+            <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" Association="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
             <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
@@ -780,9 +806,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
+          <AssociationSet Name="FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId">
             <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
-            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+            <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_LocationEmergencyLights_Areas_AreaId" Association="Self.FK_LocationEmergencyLights_Areas_AreaId">
             <End Role="Areas" EntitySet="Areas" />
@@ -874,6 +900,7 @@
           <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BicycleEntryHeaders" Relationship="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" FromRole="BicycleEntryDetails" ToRole="BicycleEntryHeaders" />
         </EntityType>
         <EntityType Name="BicycleEntryHeaders">
@@ -886,6 +913,8 @@
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BicycleEntryDetails" Relationship="Self.FK_BicycleEntryDetails_BicycleEntryHeaders_BicycleEntryHeaderId" FromRole="BicycleEntryHeaders" ToRole="BicycleEntryDetails" />
           <NavigationProperty Name="Bicycles" Relationship="Self.FK_BicycleEntryHeaders_Bicycles_BicycleId" FromRole="BicycleEntryHeaders" ToRole="Bicycles" />
         </EntityType>
@@ -944,21 +973,27 @@
           <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationEmergencyLightId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmergencyLightHeaders" Relationship="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" FromRole="EmergencyLightDetails" ToRole="EmergencyLightHeaders" />
           <NavigationProperty Name="Items" Relationship="Self.FK_EmergencyLightDetails_Items_ItemId" FromRole="EmergencyLightDetails" ToRole="Items" />
+          <NavigationProperty Name="LocationEmergencyLights" Relationship="Self.FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId" FromRole="EmergencyLightDetails" ToRole="LocationEmergencyLights" />
         </EntityType>
         <EntityType Name="EmergencyLightHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocationEmergencyLightId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ReviewedDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="EmergencyLightDetails" Relationship="Self.FK_EmergencyLightDetails_EmergencyLightHeaders_EmergencyLightHeaderId" FromRole="EmergencyLightHeaders" ToRole="EmergencyLightDetails" />
-          <NavigationProperty Name="LocationEmergencyLights" Relationship="Self.FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId" FromRole="EmergencyLightHeaders" ToRole="LocationEmergencyLights" />
         </EntityType>
         <EntityType Name="FireExtinguisherDetails">
           <Key>
@@ -979,21 +1014,27 @@
           <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationFireExtinguisherId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FireExtinguisherHeaders" Relationship="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" FromRole="FireExtinguisherDetails" ToRole="FireExtinguisherHeaders" />
           <NavigationProperty Name="Items" Relationship="Self.FK_FireExtinguisherDetails_Items_ItemId" FromRole="FireExtinguisherDetails" ToRole="Items" />
+          <NavigationProperty Name="LocationFireExtinguishers" Relationship="Self.FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId" FromRole="FireExtinguisherDetails" ToRole="LocationFireExtinguishers" />
         </EntityType>
         <EntityType Name="FireExtinguisherHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocationFireExtinguisherId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ReviewedDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="FireExtinguisherDetails" Relationship="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" FromRole="FireExtinguisherHeaders" ToRole="FireExtinguisherDetails" />
-          <NavigationProperty Name="LocationFireExtinguishers" Relationship="Self.FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId" FromRole="FireExtinguisherHeaders" ToRole="LocationFireExtinguishers" />
         </EntityType>
         <EntityType Name="FireHydrantDetails">
           <Key>
@@ -1016,21 +1057,27 @@
           <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationFireHydrantId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FireHydrantHeaders" Relationship="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" FromRole="FireHydrantDetails" ToRole="FireHydrantHeaders" />
           <NavigationProperty Name="Items" Relationship="Self.FK_FireHydrantDetails_Items_ItemId" FromRole="FireHydrantDetails" ToRole="Items" />
+          <NavigationProperty Name="LocationFireHydrants" Relationship="Self.FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId" FromRole="FireHydrantDetails" ToRole="LocationFireHydrants" />
         </EntityType>
         <EntityType Name="FireHydrantHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocationFireHydrantId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ReviewedDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="FireHydrantDetails" Relationship="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" FromRole="FireHydrantHeaders" ToRole="FireHydrantDetails" />
-          <NavigationProperty Name="LocationFireHydrants" Relationship="Self.FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId" FromRole="FireHydrantHeaders" ToRole="LocationFireHydrants" />
         </EntityType>
         <EntityType Name="InergenTankDetails">
           <Key>
@@ -1050,21 +1097,27 @@
           <Property Name="InspectedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NotedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReviewedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationInergenTankId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="InergenTankHeaders" Relationship="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" FromRole="InergenTankDetails" ToRole="InergenTankHeaders" />
           <NavigationProperty Name="Items" Relationship="Self.FK_InergenTankDetails_Items_ItemId" FromRole="InergenTankDetails" ToRole="Items" />
+          <NavigationProperty Name="LocationInergenTanks" Relationship="Self.FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId" FromRole="InergenTankDetails" ToRole="LocationInergenTanks" />
         </EntityType>
         <EntityType Name="InergenTankHeaders">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LocationInergenTankId" Type="Int32" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ReviewedDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="InergenTankDetails" Relationship="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" FromRole="InergenTankHeaders" ToRole="InergenTankDetails" />
-          <NavigationProperty Name="LocationInergenTanks" Relationship="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" FromRole="InergenTankHeaders" ToRole="LocationInergenTanks" />
         </EntityType>
         <EntityType Name="ItemLogs">
           <Key>
@@ -1093,6 +1146,8 @@
           <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EquipmentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsIn" Type="Int32" Nullable="false" />
+          <Property Name="Capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="EmergencyLightDetails" Relationship="Self.FK_EmergencyLightDetails_Items_ItemId" FromRole="Items" ToRole="EmergencyLightDetails" />
           <NavigationProperty Name="FireExtinguisherDetails" Relationship="Self.FK_FireExtinguisherDetails_Items_ItemId" FromRole="Items" ToRole="FireExtinguisherDetails" />
           <NavigationProperty Name="FireHydrantDetails" Relationship="Self.FK_FireHydrantDetails_Items_ItemId" FromRole="Items" ToRole="FireHydrantDetails" />
@@ -1109,7 +1164,7 @@
           <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Areas" Relationship="Self.FK_LocationEmergencyLights_Areas_AreaId" FromRole="LocationEmergencyLights" ToRole="Areas" />
-          <NavigationProperty Name="EmergencyLightHeaders" Relationship="Self.FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId" FromRole="LocationEmergencyLights" ToRole="EmergencyLightHeaders" />
+          <NavigationProperty Name="EmergencyLightDetails" Relationship="Self.FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId" FromRole="LocationEmergencyLights" ToRole="EmergencyLightDetails" />
         </EntityType>
         <EntityType Name="LocationFireExtinguishers">
           <Key>
@@ -1118,12 +1173,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Areas" Relationship="Self.FK_LocationFireExtinguishers_Areas_AreaId" FromRole="LocationFireExtinguishers" ToRole="Areas" />
-          <NavigationProperty Name="FireExtinguisherHeaders" Relationship="Self.FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId" FromRole="LocationFireExtinguishers" ToRole="FireExtinguisherHeaders" />
+          <NavigationProperty Name="FireExtinguisherDetails" Relationship="Self.FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId" FromRole="LocationFireExtinguishers" ToRole="FireExtinguisherDetails" />
         </EntityType>
         <EntityType Name="LocationFireHydrants">
           <Key>
@@ -1135,20 +1188,19 @@
           <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Areas" Relationship="Self.FK_LocationFireHydrants_Areas_AreaId" FromRole="LocationFireHydrants" ToRole="Areas" />
-          <NavigationProperty Name="FireHydrantHeaders" Relationship="Self.FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId" FromRole="LocationFireHydrants" ToRole="FireHydrantHeaders" />
+          <NavigationProperty Name="FireHydrantDetails" Relationship="Self.FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId" FromRole="LocationFireHydrants" ToRole="FireHydrantDetails" />
         </EntityType>
         <EntityType Name="LocationInergenTanks">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Capacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Serial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AreaId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Areas" Relationship="Self.FK_LocationInergenTanks_Areas_AreaId" FromRole="LocationInergenTanks" ToRole="Areas" />
-          <NavigationProperty Name="InergenTankHeaders" Relationship="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" FromRole="LocationInergenTanks" ToRole="InergenTankHeaders" />
+          <NavigationProperty Name="InergenTankDetails" Relationship="Self.FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId" FromRole="LocationInergenTanks" ToRole="InergenTankDetails" />
         </EntityType>
         <EntityType Name="LocationItemDetails">
           <Key>
@@ -1382,16 +1434,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId">
+        <Association Name="FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId">
           <End Role="LocationEmergencyLights" Type="Self.LocationEmergencyLights" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="EmergencyLightHeaders" Type="Self.EmergencyLightHeaders" Multiplicity="*" />
+          <End Role="EmergencyLightDetails" Type="Self.EmergencyLightDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationEmergencyLights">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="EmergencyLightHeaders">
+            <Dependent Role="EmergencyLightDetails">
               <PropertyRef Name="LocationEmergencyLightId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1424,16 +1476,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId">
+        <Association Name="FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId">
           <End Role="LocationFireExtinguishers" Type="Self.LocationFireExtinguishers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FireExtinguisherHeaders" Type="Self.FireExtinguisherHeaders" Multiplicity="*" />
+          <End Role="FireExtinguisherDetails" Type="Self.FireExtinguisherDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationFireExtinguishers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FireExtinguisherHeaders">
+            <Dependent Role="FireExtinguisherDetails">
               <PropertyRef Name="LocationFireExtinguisherId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1466,16 +1518,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId">
+        <Association Name="FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId">
           <End Role="LocationFireHydrants" Type="Self.LocationFireHydrants" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FireHydrantHeaders" Type="Self.FireHydrantHeaders" Multiplicity="*" />
+          <End Role="FireHydrantDetails" Type="Self.FireHydrantDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationFireHydrants">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="FireHydrantHeaders">
+            <Dependent Role="FireHydrantDetails">
               <PropertyRef Name="LocationFireHydrantId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1508,16 +1560,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
+        <Association Name="FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId">
           <End Role="LocationInergenTanks" Type="Self.LocationInergenTanks" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="InergenTankHeaders" Type="Self.InergenTankHeaders" Multiplicity="*" />
+          <End Role="InergenTankDetails" Type="Self.InergenTankDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocationInergenTanks">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="InergenTankHeaders">
+            <Dependent Role="InergenTankDetails">
               <PropertyRef Name="LocationInergenTankId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1625,9 +1677,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId" Association="Self.FK_EmergencyLightHeaders_LocationEmergencyLights_LocationEmergencyLightId">
+          <AssociationSet Name="FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId" Association="Self.FK_EmergencyLightDetails_LocationEmergencyLights_LocationEmergencyLightId">
             <End Role="LocationEmergencyLights" EntitySet="LocationEmergencyLights" />
-            <End Role="EmergencyLightHeaders" EntitySet="EmergencyLightHeaders" />
+            <End Role="EmergencyLightDetails" EntitySet="EmergencyLightDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId" Association="Self.FK_FireExtinguisherDetails_FireExtinguisherHeaders_FireExtinguisherHeaderId">
             <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
@@ -1637,9 +1689,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId" Association="Self.FK_FireExtinguisherHeaders_LocationFireExtinguishers_LocationFireExtinguisherId">
+          <AssociationSet Name="FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId" Association="Self.FK_FireExtinguisherDetails_LocationFireExtinguishers_LocationFireExtinguisherId">
             <End Role="LocationFireExtinguishers" EntitySet="LocationFireExtinguishers" />
-            <End Role="FireExtinguisherHeaders" EntitySet="FireExtinguisherHeaders" />
+            <End Role="FireExtinguisherDetails" EntitySet="FireExtinguisherDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId" Association="Self.FK_FireHydrantDetails_FireHydrantHeaders_FireHydrantHeaderId">
             <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
@@ -1649,9 +1701,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId" Association="Self.FK_FireHydrantHeaders_LocationFireHydrants_LocationFireHydrantId">
+          <AssociationSet Name="FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId" Association="Self.FK_FireHydrantDetails_LocationFireHydrants_LocationFireHydrantId">
             <End Role="LocationFireHydrants" EntitySet="LocationFireHydrants" />
-            <End Role="FireHydrantHeaders" EntitySet="FireHydrantHeaders" />
+            <End Role="FireHydrantDetails" EntitySet="FireHydrantDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId" Association="Self.FK_InergenTankDetails_InergenTankHeaders_InergenTankHeaderId">
             <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
@@ -1661,9 +1713,9 @@
             <End Role="Items" EntitySet="Items" />
             <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankHeaders_LocationInergenTanks_LocationInergenTankId">
+          <AssociationSet Name="FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId" Association="Self.FK_InergenTankDetails_LocationInergenTanks_LocationInergenTankId">
             <End Role="LocationInergenTanks" EntitySet="LocationInergenTanks" />
-            <End Role="InergenTankHeaders" EntitySet="InergenTankHeaders" />
+            <End Role="InergenTankDetails" EntitySet="InergenTankDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_LocationItemDetails_Items_ItemId" Association="Self.FK_LocationItemDetails_Items_ItemId">
             <End Role="Items" EntitySet="Items" />
@@ -1732,6 +1784,7 @@
                 <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1744,6 +1797,8 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1797,6 +1852,8 @@
                 <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
                 <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
                 <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LocationEmergencyLightId" ColumnName="LocationEmergencyLightId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1804,11 +1861,15 @@
             <EntityTypeMapping TypeName="SEMModel.EmergencyLightHeaders">
               <MappingFragment StoreEntitySet="EmergencyLightHeaders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LocationEmergencyLightId" ColumnName="LocationEmergencyLightId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ReviewedDate" ColumnName="ReviewedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1830,6 +1891,8 @@
                 <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
                 <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
                 <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LocationFireExtinguisherId" ColumnName="LocationFireExtinguisherId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1837,11 +1900,15 @@
             <EntityTypeMapping TypeName="SEMModel.FireExtinguisherHeaders">
               <MappingFragment StoreEntitySet="FireExtinguisherHeaders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LocationFireExtinguisherId" ColumnName="LocationFireExtinguisherId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ReviewedDate" ColumnName="ReviewedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1865,6 +1932,8 @@
                 <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
                 <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
                 <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LocationFireHydrantId" ColumnName="LocationFireHydrantId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1872,11 +1941,15 @@
             <EntityTypeMapping TypeName="SEMModel.FireHydrantHeaders">
               <MappingFragment StoreEntitySet="FireHydrantHeaders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LocationFireHydrantId" ColumnName="LocationFireHydrantId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ReviewedDate" ColumnName="ReviewedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1897,6 +1970,8 @@
                 <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
                 <ScalarProperty Name="NotedBy" ColumnName="NotedBy" />
                 <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="LocationInergenTankId" ColumnName="LocationInergenTankId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1904,11 +1979,15 @@
             <EntityTypeMapping TypeName="SEMModel.InergenTankHeaders">
               <MappingFragment StoreEntitySet="InergenTankHeaders">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LocationInergenTankId" ColumnName="LocationInergenTankId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="ReviewedDate" ColumnName="ReviewedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1939,6 +2018,8 @@
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="EquipmentType" ColumnName="EquipmentType" />
                 <ScalarProperty Name="IsIn" ColumnName="IsIn" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1959,8 +2040,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
@@ -1981,8 +2060,7 @@
             <EntityTypeMapping TypeName="SEMModel.LocationInergenTanks">
               <MappingFragment StoreEntitySet="LocationInergenTanks">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

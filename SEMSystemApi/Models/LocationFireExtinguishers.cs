@@ -17,19 +17,17 @@ namespace SEMSystemApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LocationFireExtinguishers()
         {
-            this.FireExtinguisherHeaders = new HashSet<FireExtinguisherHeaders>();
+            this.FireExtinguisherDetails = new HashSet<FireExtinguisherDetails>();
         }
     
         public int Id { get; set; }
         public string Location { get; set; }
         public string Code { get; set; }
-        public string Type { get; set; }
-        public string Capacity { get; set; }
         public int AreaId { get; set; }
         public string Status { get; set; }
     
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FireExtinguisherHeaders> FireExtinguisherHeaders { get; set; }
+        public virtual ICollection<FireExtinguisherDetails> FireExtinguisherDetails { get; set; }
     }
 }
