@@ -248,6 +248,7 @@ namespace SEMSystemApi.Controllers
                                          A.i.Items.EquipmentType,
                                          Plant = B.Areas.Companies.Name,
                                          CompanyId = B.Areas.Companies.ID,
+                                         AreaExtinguishing = B.Area,
                                          Area = B.Areas.Name,
                                          A.i.CreatedAt,
                                          B.AreaId,
