@@ -78,6 +78,8 @@
               <xs:element name="Capacity" msprop:Generator_ColumnVarNameInTable="columnCapacity" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_UserColumnName="Capacity" type="xs:string" minOccurs="0" />
               <xs:element name="EquipmentType" msprop:Generator_ColumnVarNameInTable="columnEquipmentType" msprop:Generator_ColumnPropNameInRow="EquipmentType" msprop:Generator_ColumnPropNameInTable="EquipmentTypeColumn" msprop:Generator_UserColumnName="EquipmentType" type="xs:string" minOccurs="0" />
               <xs:element name="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnPropNameInTable="LocationColumn" msprop:Generator_UserColumnName="Location" type="xs:string" minOccurs="0" />
+              <xs:element name="LocationCylinder" msprop:Generator_ColumnVarNameInTable="columnLocationCylinder" msprop:Generator_ColumnPropNameInRow="LocationCylinder" msprop:Generator_ColumnPropNameInTable="LocationCylinderColumn" msprop:Generator_UserColumnName="LocationCylinder" type="xs:string" minOccurs="0" />
+              <xs:element name="AreaExtinguishing" msprop:Generator_ColumnVarNameInTable="columnAreaExtinguishing" msprop:Generator_ColumnPropNameInRow="AreaExtinguishing" msprop:Generator_ColumnPropNameInTable="AreaExtinguishingColumn" msprop:Generator_UserColumnName="AreaExtinguishing" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

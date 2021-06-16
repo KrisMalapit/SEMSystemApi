@@ -1489,6 +1489,10 @@ namespace SEMSystemApi.Models {
             
             private global::System.Data.DataColumn columnLocation;
             
+            private global::System.Data.DataColumn columnLocationCylinder;
+            
+            private global::System.Data.DataColumn columnAreaExtinguishing;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public InergenTankDataTable() {
@@ -1660,6 +1664,22 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LocationCylinderColumn {
+                get {
+                    return this.columnLocationCylinder;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AreaExtinguishingColumn {
+                get {
+                    return this.columnAreaExtinguishing;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1712,7 +1732,9 @@ namespace SEMSystemApi.Models {
                         string Serial, 
                         string Capacity, 
                         string EquipmentType, 
-                        string Location) {
+                        string Location, 
+                        string LocationCylinder, 
+                        string AreaExtinguishing) {
                 InergenTankRow rowInergenTankRow = ((InergenTankRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Area,
@@ -1731,7 +1753,9 @@ namespace SEMSystemApi.Models {
                         Serial,
                         Capacity,
                         EquipmentType,
-                        Location};
+                        Location,
+                        LocationCylinder,
+                        AreaExtinguishing};
                 rowInergenTankRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInergenTankRow);
                 return rowInergenTankRow;
@@ -1771,6 +1795,8 @@ namespace SEMSystemApi.Models {
                 this.columnCapacity = base.Columns["Capacity"];
                 this.columnEquipmentType = base.Columns["EquipmentType"];
                 this.columnLocation = base.Columns["Location"];
+                this.columnLocationCylinder = base.Columns["LocationCylinder"];
+                this.columnAreaExtinguishing = base.Columns["AreaExtinguishing"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1810,6 +1836,10 @@ namespace SEMSystemApi.Models {
                 base.Columns.Add(this.columnEquipmentType);
                 this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLocation);
+                this.columnLocationCylinder = new global::System.Data.DataColumn("LocationCylinder", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocationCylinder);
+                this.columnAreaExtinguishing = new global::System.Data.DataColumn("AreaExtinguishing", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAreaExtinguishing);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5185,6 +5215,38 @@ namespace SEMSystemApi.Models {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string LocationCylinder {
+                get {
+                    try {
+                        return ((string)(this[this.tableInergenTank.LocationCylinderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LocationCylinder\' in table \'InergenTank\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInergenTank.LocationCylinderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string AreaExtinguishing {
+                get {
+                    try {
+                        return ((string)(this[this.tableInergenTank.AreaExtinguishingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AreaExtinguishing\' in table \'InergenTank\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInergenTank.AreaExtinguishingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsAreaNull() {
                 return this.IsNull(this.tableInergenTank.AreaColumn);
             }
@@ -5385,6 +5447,30 @@ namespace SEMSystemApi.Models {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLocationNull() {
                 this[this.tableInergenTank.LocationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLocationCylinderNull() {
+                return this.IsNull(this.tableInergenTank.LocationCylinderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLocationCylinderNull() {
+                this[this.tableInergenTank.LocationCylinderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAreaExtinguishingNull() {
+                return this.IsNull(this.tableInergenTank.AreaExtinguishingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAreaExtinguishingNull() {
+                this[this.tableInergenTank.AreaExtinguishingColumn] = global::System.Convert.DBNull;
             }
         }
         

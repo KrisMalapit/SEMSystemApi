@@ -25,6 +25,7 @@ namespace SEMSystemApi.Models
         public string Area { get; set; }
         public int AreaId { get; set; }
         public string Status { get; set; }
+        public string LocationCylinder { get; set; }
     
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -546,7 +546,8 @@ namespace SEMSystemApi.Controllers
                                      A.i.Pressure,
                                      A.i.Hose,
                                      A.i.Remarks,
-                                     Location = B.Area,
+                                     B.Location,
+                                     B.LocationCylinder,
                                      Serial = A.i.Items.SerialNo,
                                      A.i.Items.Capacity,
                                      A.i.InspectedBy,
@@ -557,6 +558,7 @@ namespace SEMSystemApi.Controllers
                                      A.i.Items.EquipmentType,
                                      Plant = B.Areas.Companies.Name,
                                      CompanyId = B.Areas.Companies.ID,
+                                     AreaExtinguishing = B.Area,
                                      Area = B.Areas.Name,
                                      A.i.CreatedAt,
 
